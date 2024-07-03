@@ -698,11 +698,11 @@ footer {
     text-align: center;
 }
 
-/* jamil's edit start  */
+/* Mobile NavBar edit start  */
 .mobile-only{
     display: none;
 }
-/* jamil's edit end  */
+/* Mobile NavBar edit end  */
 /* footer section styles ends */
 
 /* responsive starts */
@@ -860,7 +860,7 @@ footer {
     header .container .fa-bars {
         display: block;
     }
-    /* jamils editing start  */
+    /* Mobile NavBar editing start  */
     header .container ul {
         width: 290px;
         height: auto;
@@ -949,7 +949,7 @@ footer {
         opacity: 1;
     }
 
-    /* jamils editing end  */
+    /* Mobile NavBar editing end  */
     #banner,
     .about,
     .choose,

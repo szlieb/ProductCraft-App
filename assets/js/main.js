@@ -9,7 +9,7 @@ const overlay = document.querySelector(".overlay")
 
 // menu responsive ends
 
-// Jamil's work start from here ------------------------------------------------------
+// Mobile NavBar begins
 let isOpen = false;
 
 bars.addEventListener('click', function(event) {
@@ -35,7 +35,7 @@ menu.addEventListener('click', function(event) {
     event.stopPropagation();
 });
 
-// Jamil's work end here --------------------------------------------------------------
+// Mobile NavBar  ends here
 
 
 
@@ -97,7 +97,7 @@ function captureSelectedMethod() {
 
 // form validation ends
 
-// Your existing JavaScript code...
+
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
