@@ -1,0 +1,1038 @@
+/* font import */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.cdnfonts.com/css/gilroy-bold?styles=20876,20877,20878,20879,20880");
+/* font import ends */
+
+/* common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Outfit", sans-serif;
+}
+body {
+    scroll-behavior: smooth;
+}
+li {
+    list-style: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font-family: "Gilroy-Regular", sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #06498F;
+}
+button:hover {
+    background-color: #06488fac;
+}
+.container {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 10px 15px;
+}
+
+.text-container {
+    width: 80%; /* Set the width of the text container */
+    margin: 0 auto; /* Center the text container horizontally */
+}
+
+.text-container p {
+    text-align: justify; /* Justify text within the container */
+    text-justify: inter-word; /* Specify inter-word justification for better spacing */
+    hyphens: auto; /* Enable hyphenation to improve line breaks */
+}
+
+
+/* common styles ends */
+
+/* overlay styles */
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000006f;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.3s;
+}
+/* overlay styles ends */
+
+/*mobile responsive formatting begin*/
+
+/* Responsive styles for the banner section */
+#banner {
+    text-align: center;
+}
+
+#banner h1 {
+    font-size: 24px; /* Adjust the font size for smaller screens */
+    word-wrap: break-word; /* Allow long words to break and wrap */
+    overflow-wrap: break-word; /* Ensure that long words break at the end of the line */
+}
+
+/* Update the styles for the "Get Started" button */
+#banner button {
+    width: auto; /* Allow the button to adjust its width based on content */
+    max-width: 100%; /* Set a maximum width relative to its container */
+    display: block; /* Ensure the button behaves as a block element */
+    margin: 0 auto; /* Center the button horizontally */
+}
+
+/* Center headings and strong elements on mobile view */
+@media (max-width: 767px) {
+    h1,
+    h2,
+    h3,
+    strong {
+        text-align: center;
+    }
+}
+/* Center all text and buttons on mobile view */
+@media (max-width: 767px) {
+    * {
+        text-align: center;
+    }
+}
+/*mobile responsive formatting end*/
+
+/* header section styles */
+header {
+    background-color: #141414;
+    padding: 10px 0;
+}
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .container ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header .container ul li {
+    margin-left: 30px;
+}
+
+header .container ul li a {
+    font-size: 28px;
+    font-family: "Gilroy-Regular", sans-serif;
+    font-weight: 400;
+    color: #fff;
+    transition: 0.3s;
+}
+header .container ul li a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+header .container .fa-bars {
+    font-size: 25px;
+    color: #fff;
+    display: none;
+}
+/* header section styles ends */
+
+/* banner section styles */
+#banner {
+    padding: 140px 90px;
+    background-image: url(../images/banner-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#banner h1 {
+    font-size: 86px;
+    font-weight: 800;
+    line-height: 98px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#banner h1 span {
+    color: #06498F;
+}
+
+#banner p {
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 34px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+#banner button {
+    width: 188px;
+    height: 64px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    /* background-color: #06498F; */
+    border: none;
+    display: block;
+    margin: 0 auto;
+}
+/* banner section styles ends */
+
+/* about us section styles */
+.about {
+    padding: 140px 90px;
+}
+.about .container {
+    display: flex;
+    align-items: flex-start;
+}
+.aboutLeft {
+    width: 50%;
+    padding-right: 35px;
+}
+.aboutLeft img {
+    width: 100%;
+}
+
+.aboutRight {
+    width: 50%;
+    padding-left: 15px;
+}
+.aboutRight h2 {
+    font-size: 66px;
+    font-weight: 800;
+    line-height: 76px;
+    color: #06498F;
+    margin-bottom: 25px;
+}
+.aboutRight h2 span {
+    color: #232323;
+}
+.aboutRight p {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 28px;
+    color: #666666;
+    margin-bottom: 15px;
+}
+
+.aboutRight button {
+    width: 182px;
+    height: 64px;
+    /* background-color: #06498F; */
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+}
+/* about us section styles ends */
+
+/* why choose us section styles */
+.choose {
+    padding: 140px 90px;
+    background-color: #282828;
+}
+.choose .container {
+    display: flex;
+    align-items: center;
+}
+
+.chooseLeft {
+    width: 50%;
+    padding-right: 10px;
+}
+.chooseLeft h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 66px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.chooseLeft strong {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 36px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+.chooseLeft p {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 32px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.chooseRight {
+    width: 50%;
+    padding-left: 35px;
+}
+.chooseRight img {
+    width: 100%;
+}
+/* why choose us section styles ends */
+
+/* services section styles */
+.services {
+    padding: 140px 70px;
+}
+.services h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 66px;
+    color: #06498F;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.services h2 span {
+    color: #232323;
+}
+
+.serviceWrap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.singleService {
+    width: 400px;
+    min-height: 230px;
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.singleService:hover {
+    transform: scale(1.1);
+}
+
+.singleService .serviceImg {
+    width: 102px;
+    height: 102px;
+    border-radius: 50%;
+    border: 1px solid #0C195E;
+    display: grid;
+    place-items: center;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 31px;
+}
+
+.serviceText {
+    width: 100%;
+    padding: 15px;
+    position: absolute;
+    top: 135px;
+    left: 0;
+    transition: 0.3s;
+    background-color: #ff00;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.singleService:hover .serviceText {
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    overflow-y: auto;
+    border-radius: 10px;
+    width: 100%; /* Keep the width at 100% */
+    left: 0%; /* Keep the left position at 0% */
+    padding: 15px 30px 30px 30px; /* Increase bottom padding */
+    display: flex; /* Use Flexbox to center the text */
+    text-align: left; /* Center the text */
+}
+
+.serviceText {
+    position: relative;
+}
+
+.serviceText h3 {
+    position: sticky;
+    top: 0;
+    background-color: #000;
+    color: #fff;
+    padding: 15px;
+    z-index: 1;
+}
+
+.serviceText p {
+    display: none;
+    font-size: 18px;
+}
+
+.singleService:hover .serviceText p {
+    display: block;
+}
+/* services section styles ends */
+
+/* what we offer section styles */
+.offer {
+    padding: 140px 90px;
+    background-color: #282828;
+}
+.offer .container {
+    display: flex;
+    align-items: center;
+}
+.offer .offerLeft {
+    width: 50%;
+    padding-right: 35px;
+}
+.offerLeft img {
+    width: 100%;
+}
+
+.offerRight {
+    width: 50%;
+    padding-left: 10px;
+}
+.offerRight h2 {
+    font-size: 56px;
+    font-weight: 800;
+    line-height: 66px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.offerRight strong {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 36px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+.offerRight p {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 32px;
+    margin-bottom: 30px;
+    color: #fff;
+}
+/* what we offer section styles ends */
+
+/* contact us section styles */
+.inTouch {
+    padding: 140px 70px;
+}
+
+.inTouch .container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.touchLeft {
+    width: 50%;
+    padding-right: 10px;
+}
+
+.touchLeft h2 {
+    font-size: 66px;
+    font-weight: 900;
+    line-height: 76px;
+    font-family: "Gilroy-Heavy", sans-serif;
+    color: #232323;
+    margin-bottom: 25px;
+}
+.touchLeft h2 span {
+    color: #06498F;
+}
+
+.touchLeft p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 31px;
+    font-family: "Gilroy-Regular", sans-serif;
+    color: #232323;
+    margin-bottom: 30px;
+}
+
+.touchLeft form .touchFormSug {
+    font-size: 18px;
+}
+.touchLeft form .touchFormSug span {
+    color: red;
+}
+.touchLeft form .touchInpRow {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.touchLeft form .touchInpRow .touchSingleInp {
+    width: calc(50% - 10px);
+    position: relative;
+}
+.touchLeft form .touchInpRow .touchSingleInp.companyInp {
+    width: 100%;
+}
+.touchLeft form .touchInpRow label {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    font-family: "Gilroy-Medium", sans-serif;
+    color: #232323;
+    display: block;
+    position: relative;
+}
+
+.touchLeft form .touchInpRow label span {
+    color: red !important;
+}
+
+.touchLeft form .touchInpRow .touchSingleInp input {
+    width: 100%;
+    height: 52px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Gilroy-Medium", sans-serif;
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    background-color: #f4f4f5;
+}
+.touchLeft form .touchInpRow .touchSingleInp span {
+    font-size: 14px;
+    color: #666666;
+}
+
+.touchLeft form .touchInpRow .touchInpBig {
+    width: 100%;
+}
+.touchLeft form .touchInpRow textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    padding: 12px 16px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Gilroy-Medium", sans-serif;
+    box-shadow: 0px 1px 2px 0px #1018280D;
+    background-color: #f4f4f5;
+}
+
+.touchLeft form .touchInpRow small {
+    font-size: 13px;
+    color: red;
+    display: none;
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+}
+.touchLeft form .touchInpRow small.active {
+    display: block;
+}
+
+.contentMethod {
+    margin-bottom: 20px;
+}
+.contentMethod p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    font-family: "Gilroy-Medium", sans-serif;
+    color: #232323;
+    margin-bottom: 15px;
+}
+.contentMethod p span {
+    color: red;
+}
+
+.contentMethod .methodItemWrap {
+    display: flex;
+    align-items: center;
+}
+.contentMethod .methodItemWrap .methodItem {
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+}
+
+.contentMethod .methodItemWrap .methodItem input {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin-right: 10px;
+}
+.contentMethod .methodItemWrap .methodItem label {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: #666666;
+    font-family: "Gilroy-Regular", sans-serif;
+}
+
+.contentCaptcha {
+    width: 250px;
+    height: 100px;
+    border: 1.5px solid #141414;
+    margin-bottom: 30px;
+}
+
+.touchLeft form .touchBtn {
+    width: 307px;
+    height: 64px;
+    /* background-color: #06498F; */
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.touchRight {
+    width: 50%;
+    padding-left: 10px;
+}
+.touchRight h3 {
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 43px;
+    font-family: "Gilroy-Medium", sans-serif;
+    color: #06498F;
+    margin-bottom: 20px;
+}
+.touchRight p {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 28px; /* Adjust line height for increased spacing between lines */
+    color: #000000;
+    margin-bottom: 15px; /* Increase the margin at the bottom of paragraphs for more spacing */
+    max-width: 75%; /* Set a maximum width for the paragraphs to make them more narrow */
+    /*text-align: center;*/
+}
+
+.touchRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+    align-items: center; /* Horizontally center the content */
+    /* text-align: center; /* Center align the text within the container */
+}
+/* contact us section styles ends */
+
+/* footer section styles */
+footer {
+    padding: 0 70px;
+    background-color: #06498F;
+}
+
+.footerTop {
+    padding: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.footerTop ul {
+    display: flex;
+    align-items: center;
+}
+
+.footerTop ul li a {
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    font-family: "Gilroy-Regular", sans-serif;
+    color: #fff;
+    transition: 0.3s;
+}
+.footerTop ul li a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footerSocial {
+    display: flex;
+    align-items: center;
+}
+.footerSocial a {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: grid;
+    place-items: center;
+    margin-left: 10px;
+    transition: 0.3s;
+}
+.footerSocial a:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.footerSocial a i {
+    font-size: 12px;
+    color: #06498F;
+}
+
+.footerBottom {
+    padding: 25px 0;
+}
+.footerBottom p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+}
+
+/* jamil's edit start  */
+.mobile-only{
+    display: none;
+}
+/* jamil's edit end  */
+/* footer section styles ends */
+
+/* responsive starts */
+@media (max-width: 1380px) {
+    .serviceWrap {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1300px) {
+    .footerTop ul {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .footerTop ul li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        max-width: 800px;
+    }
+    header .logo {
+        width: 130px;
+    }
+    header .container ul li a {
+        font-size: 20px;
+    }
+    #banner h1 {
+        font-size: 65px;
+        line-height: 80px;
+    }
+
+    #banner p {
+        font-size: 18px;
+    }
+    #banner button {
+        font-size: 16px;
+    }
+
+    .about .container {
+        flex-direction: column;
+    }
+    .aboutLeft {
+        width: 100%;
+        padding: 0;
+    }
+    .aboutRight {
+        width: 100%;
+        padding: 0;
+    }
+    .aboutRight h2 {
+        font-size: 55px;
+    }
+
+    .aboutRight p {
+        font-size: 18px;
+    }
+    .aboutRight button {
+        font-size: 16px;
+    }
+
+    .choose .container {
+        flex-direction: column;
+    }
+    .chooseLeft {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+
+    .chooseLeft strong {
+        font-size: 22px;
+    }
+    .chooseLeft p {
+        font-size: 18px;
+    }
+    .chooseRight {
+        width: 100%;
+        padding: 0;
+    }
+
+    .services h2 {
+        font-size: 50px;
+    }
+    .singleService {
+        width: 300px;
+    }
+
+    .serviceText h3 {
+        font-size: 20px;
+    }
+
+    .offer .container {
+        flex-direction: column;
+    }
+    .offer .offerLeft {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 25px;
+    }
+    .offer .offerRight {
+        width: 100%;
+        padding: 0;
+    }
+    .offerRight strong {
+        font-size: 22px;
+    }
+    .offerRight p {
+        font-size: 18px;
+    }
+
+    .inTouch .container {
+        flex-direction: column-reverse;
+    }
+    .touchLeft {
+        width: 100%;
+        padding: 0;
+    }
+    .touchLeft h2 {
+        font-size: 55px;
+    }
+    .touchLeft p {
+        font-size: 18px;
+    }
+    .touchLeft form .touchInpRow label {
+        font-size: 15px;
+    }
+    .touchLeft form .touchBtn {
+        font-size: 16px;
+    }
+    .touchRight {
+        width: 100%;
+        padding: 0;
+        margin-bottom: 25px;
+    }
+
+    .footerTop .footerLogo {
+        width: 140px;
+    }
+    .footerTop ul li a {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        max-width: 600px;
+    }
+    .overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    header .container .fa-bars {
+        display: block;
+    }
+    /* jamils editing start  */
+    header .container ul {
+        width: 290px;
+        height: auto;
+        position: fixed;
+        transition: 0.3s;
+        left: -310px;
+        top: 0;
+        background-color: #232323;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 20px 20px;
+    }
+    
+    header .container ul.active {
+        left: 0;
+    }
+    header .container ul li {
+        margin-left: 0;
+        
+    }
+
+    header .container ul li:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    .menu-btn {
+        display: inline-block;
+        cursor: pointer;
+        z-index: 10;
+        position: relative;
+    }
+    
+    .menu-btn__burger {
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+    }
+    
+    .menu-btn__burger::before,
+    .menu-btn__burger::after {
+        content: '';
+        width: 25px;
+        height: 2px;
+        background-color: #fff;
+        border-radius: 5px;
+        position: absolute;
+        transition: all 0.3s ease-in-out;
+        right:0;
+    }
+    
+    .menu-btn__burger::before {
+        transform: translateY(-10px);
+    }
+    
+    .menu-btn__burger::after {
+        transform: translateY(10px);
+    }
+    
+    .menu-btn.open .menu-btn__burger {
+        background-color: transparent;
+    }
+    
+    .menu-btn.open .menu-btn__burger::before {
+        transform: rotate3d(0, 0, 1, 45deg);
+    }
+    
+    .menu-btn.open .menu-btn__burger::after {
+        transform: rotate3d(0, 0, 1, -45deg);
+    }
+
+    .open{
+       opacity : 1;
+        left : 0 !important;
+        z-index:  99999;
+    }
+
+    .mobile-only{
+        display: block;
+    }
+
+    .overlay.active{
+        opacity: 1;
+    }
+
+    /* jamils editing end  */
+    #banner,
+    .about,
+    .choose,
+    .offer {
+        padding: 80px 40px;
+    }
+    #banner h1 {
+        font-size: 60px;
+    }
+
+    .services,
+    .inTouch {
+        padding: 80px 30px;
+    }
+
+    .singleService {
+        width: 250px;
+    }
+
+    footer {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 650px) {
+    .footerTop {
+        flex-direction: column;
+    }
+    .footerTop .footerLogo {
+        margin-bottom: 30px;
+    }
+    .footerTop ul {
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 500px) {
+    #banner,
+    .about,
+    .choose,
+    .offer,
+    .services,
+    .inTouch {
+        padding: 60px 15px;
+    }
+    #banner h1 {
+        font-size: 52px;
+        line-height: 60px;
+    }
+
+    .aboutRight h2,
+    .chooseLeft h2,
+    .offerRight h2,
+    .touchLeft h2 {
+        font-size: 48px;
+    }
+
+    .services h2 {
+        font-size: 46px;
+    }
+
+    .touchLeft form .touchInpRow {
+        flex-direction: column;
+    }
+    .touchLeft form .touchInpRow .touchSingleInp {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .touchLeft form .touchInpRow .touchSingleInp:last-child {
+        margin-bottom: 0;
+    }
+
+    .touchLeft form .touchBtn {
+        width: 200px;
+    }
+    .touchRight h3 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 400px) {
+    #banner h1 {
+        font-size: 48px;
+    }
+}
+/* responsive ends */
