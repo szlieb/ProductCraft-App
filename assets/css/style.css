@@ -30,6 +30,7 @@ button {
 }
 button:hover {
     background-color: #06488fac;
+    transform: translateY(-3px);
 }
 .container {
     max-width: 1250px;
@@ -171,15 +172,15 @@ header .container .fa-bars {
 }
 
 #banner button {
-    width: 188px;
-    height: 64px;
+    width: auto;
+    height: auto;
+    /* background-color: #06498F; */
+    color: #fff;
+    border: none;
     font-size: 18px;
     font-weight: 400;
-    color: #fff;
-    /* background-color: #06498F; */
-    border: none;
-    display: block;
-    margin: 0 auto;
+    padding: 12px 20px;
+    border-radius: 5px;
 }
 /* banner section styles ends */
 
@@ -221,14 +222,20 @@ header .container .fa-bars {
     margin-bottom: 15px;
 }
 
-.aboutRight button {
-    width: 182px;
-    height: 64px;
+.aboutRight button, .services button {
+    width: auto;
+    height: auto;
     /* background-color: #06498F; */
     color: #fff;
     border: none;
     font-size: 18px;
     font-weight: 400;
+    padding: 12px 20px;
+    border-radius: 5px;
+}
+
+.services button{
+    margin-top: 20px;
 }
 /* about us section styles ends */
 
@@ -297,9 +304,13 @@ header .container .fa-bars {
 
 .serviceWrap {
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.serviceWrap a{
+    margin-top: auto;
 }
 
 .singleService {
@@ -593,13 +604,15 @@ h3 {
 }
 
 .touchLeft form .touchBtn {
-    width: 307px;
-    height: 64px;
+    width: auto;
+    height: auto;
     /* background-color: #06498F; */
     color: #fff;
     border: none;
     font-size: 18px;
     font-weight: 400;
+    padding: 12px 20px;
+    border-radius: 5px;
 }
 
 .touchRight {
@@ -1036,3 +1049,83 @@ footer {
     }
 }
 /* responsive ends */
+
+/* Enhance SEO */
+.menu-item{
+    position: relative;
+}
+
+.menu-item li{
+    margin-left: 0 !important;
+}
+header .container ul .submenu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    z-index: 1;
+}
+
+.submenu-item a {
+    padding: 10px 20px;
+    display: block;
+    font-size: 20px !important;
+    text-align: center;
+}
+
+.submenu-item a:hover {
+    background-color: #575757;
+}
+
+.menu-item:hover .submenu {
+    display: block;
+}
+
+.arrow {
+    width: 0px;
+    height: 0px;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid white;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+
+@media (max-width: 768px) {
+   
+    .submenu {
+        left: 100% !important;
+        top: 0 !important;
+        transform: translate(0%, -65%);
+    }
+
+    .submenu li{
+        margin-bottom: 10px !important;
+        text-align: left !important;
+    }
+
+    .submenu li a{
+        font-size: 17px !important;
+    }
+    .menu-item:hover .submenu {
+        display: block;
+    }
+
+    .menu-item.open .submenu {
+        display: block;
+    }
+
+    .arrow {
+        transform: rotate(-90deg);
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+/* Enhance SEO */
