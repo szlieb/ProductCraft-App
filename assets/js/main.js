@@ -136,74 +136,81 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('One or more elements are missing');
     }
 
-    // form validation begins
-    const userForm = document.querySelector(".inTouch form");
-    if (userForm) {
-        console.log('Form element found');
-        const nameInp = document.querySelector("#name");
-        const nameInp2 = document.querySelector("#name2");
-        const mailInp = document.querySelector("#mail");
-        const phoneInp = document.querySelector("#phone");
-        const messageInp = document.querySelector("#message");
-        const nameWarn = document.querySelector(".nameWarn");
-        const name2Warn = document.querySelector(".name2Warn");
-        const mailWarn = document.querySelector(".mailWarn");
-        const phoneWarn = document.querySelector(".phoneWarn");
-        const messageWarn = document.querySelector(".messageWarn");
+    // Function to handle form validation
+    function handleFormValidation() {
+        const userForm = document.querySelector(".inTouch form");
+        if (userForm) {
+            console.log('Form element found');
+            const nameInp = document.querySelector("#name");
+            const nameInp2 = document.querySelector("#name2");
+            const mailInp = document.querySelector("#mail");
+            const phoneInp = document.querySelector("#phone");
+            const messageInp = document.querySelector("#message");
+            const nameWarn = document.querySelector(".nameWarn");
+            const name2Warn = document.querySelector(".name2Warn");
+            const mailWarn = document.querySelector(".mailWarn");
+            const phoneWarn = document.querySelector(".phoneWarn");
+            const messageWarn = document.querySelector(".messageWarn");
 
-        userForm.addEventListener("submit", (event) => {
-            console.log('Form submitted');
-            nameWarn.classList.remove("active");
-            mailWarn.classList.remove("active");
-            phoneWarn.classList.remove("active");
-            messageWarn.classList.remove("active");
-            let warnCount = 0;
-            if (!nameInp.value) {
-                nameWarn.classList.add("active");
-                warnCount++;
-                console.log('Name input is empty');
-            }
-            if (!nameInp2.value) {
-                name2Warn.classList.add("active");
-                warnCount++;
-                console.log('Last name input is empty');
-            }
-            if (!messageInp.value) {
-                messageWarn.classList.add("active");
-                warnCount++;
-                console.log('Message input is empty');
-            }
-            if (!mailInp.value) {
-                mailWarn.classList.add("active");
-                warnCount++;
-                console.log('Email input is empty');
-            }
-            if (!phoneInp.value) {
-                phoneWarn.classList.add("active");
-                warnCount++;
-                console.log('Phone input is empty');
-            }
+            userForm.addEventListener("submit", (event) => {
+                console.log('Form submitted');
+                nameWarn.classList.remove("active");
+                mailWarn.classList.remove("active");
+                phoneWarn.classList.remove("active");
+                messageWarn.classList.remove("active");
+                let warnCount = 0;
+                if (!nameInp.value) {
+                    nameWarn.classList.add("active");
+                    warnCount++;
+                    console.log('Name input is empty');
+                }
+                if (!nameInp2.value) {
+                    name2Warn.classList.add("active");
+                    warnCount++;
+                    console.log('Last name input is empty');
+                }
+                if (!messageInp.value) {
+                    messageWarn.classList.add("active");
+                    warnCount++;
+                    console.log('Message input is empty');
+                }
+                if (!mailInp.value) {
+                    mailWarn.classList.add("active");
+                    warnCount++;
+                    console.log('Email input is empty');
+                }
+                if (!phoneInp.value) {
+                    phoneWarn.classList.add("active");
+                    warnCount++;
+                    console.log('Phone input is empty');
+                }
 
-            if (warnCount === 0) {
-                console.log('Form validation passed');
-                // If there are no validation errors, allow the form to submit
-                return true;
-            } else {
-                console.log('Form validation failed');
-                // If there are validation errors, prevent the form from submitting
-                event.preventDefault();
-                return false;
-            }
-        });
+                if (warnCount === 0) {
+                    console.log('Form validation passed');
+                    // If there are no validation errors, allow the form to submit
+                    return true;
+                } else {
+                    console.log('Form validation failed');
+                    // If there are validation errors, prevent the form from submitting
+                    event.preventDefault();
+                    return false;
+                }
+            });
 
-        // Add the function for capturing the selected method of contact
-        function captureSelectedMethod() {
-            const selectedMethod = document.querySelector('input[name="method"]:checked').value;
-            document.getElementById('selectedMethod').value = selectedMethod;
-            console.log('Selected method of contact:', selectedMethod);
+            // Add the function for capturing the selected method of contact
+            function captureSelectedMethod() {
+                const selectedMethod = document.querySelector('input[name="method"]:checked').value;
+                document.getElementById('selectedMethod').value = selectedMethod;
+                console.log('Selected method of contact:', selectedMethod);
+            }
+        } else {
+            console.error('Form element is missing');
         }
-    } else {
-        console.error('Form element is missing');
+    }
+
+    // Call the form validation function if the form exists
+    if (document.querySelector(".inTouch form")) {
+        handleFormValidation();
     }
 
     // Smooth scrolling for anchor links
