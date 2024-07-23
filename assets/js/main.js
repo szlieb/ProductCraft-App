@@ -47,7 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerContent = `
     <div class="container">
         <div class="footerTop">
-            <img src="assets/images/logo.svg" alt="ProductCraft logo" class="footerLogo" />
+        <a href="index.html">
+        <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
+    </a>
             <ul>
                 <li>
                     <a href="about.html">About Us</a>
