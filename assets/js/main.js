@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM fully loaded and parsed');
+
     // Header content
     const headerContent = `
     <div class="container">
@@ -79,12 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerElement = document.getElementById('footer');
 
     if (headerElement) {
+        console.log('Header element found');
         headerElement.innerHTML = headerContent;
     } else {
         console.error('Header element is missing');
     }
 
     if (footerElement) {
+        console.log('Footer element found');
         footerElement.innerHTML = footerContent;
     } else {
         console.error('Footer element is missing');
@@ -110,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
             isOpen = !isOpen;
             bars.classList.toggle('open');
             overlay.classList.toggle('active');   
+            console.log('Menu button clicked, isOpen:', isOpen);
         });
 
         document.addEventListener('click', function(event) {
@@ -119,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     bars.classList.toggle('open');
                     overlay.classList.toggle('active');   
                     isOpen = false;
+                    console.log('Document clicked outside menu, isOpen:', isOpen);
                 }
             }
         });
@@ -133,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // form validation begins
     const userForm = document.querySelector(".inTouch form");
     if (userForm) {
+        console.log('Form element found');
         const nameInp = document.querySelector("#name");
         const nameInp2 = document.querySelector("#name2");
         const mailInp = document.querySelector("#mail");
@@ -144,7 +151,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const phoneWarn = document.querySelector(".phoneWarn");
         const messageWarn = document.querySelector(".messageWarn");
 
-        userForm.addEventListener("submit", () => {
+        userForm.addEventListener("submit", (event) => {
+            console.log('Form submitted');
             nameWarn.classList.remove("active");
             mailWarn.classList.remove("active");
             phoneWarn.classList.remove("active");
@@ -153,29 +161,37 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!nameInp.value) {
                 nameWarn.classList.add("active");
                 warnCount++;
+                console.log('Name input is empty');
             }
             if (!nameInp2.value) {
                 name2Warn.classList.add("active");
                 warnCount++;
+                console.log('Last name input is empty');
             }
             if (!messageInp.value) {
                 messageWarn.classList.add("active");
                 warnCount++;
+                console.log('Message input is empty');
             }
             if (!mailInp.value) {
                 mailWarn.classList.add("active");
                 warnCount++;
+                console.log('Email input is empty');
             }
             if (!phoneInp.value) {
                 phoneWarn.classList.add("active");
                 warnCount++;
+                console.log('Phone input is empty');
             }
 
             if (warnCount === 0) {
+                console.log('Form validation passed');
                 // If there are no validation errors, allow the form to submit
                 return true;
             } else {
+                console.log('Form validation failed');
                 // If there are validation errors, prevent the form from submitting
+                event.preventDefault();
                 return false;
             }
         });
@@ -184,6 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function captureSelectedMethod() {
             const selectedMethod = document.querySelector('input[name="method"]:checked').value;
             document.getElementById('selectedMethod').value = selectedMethod;
+            console.log('Selected method of contact:', selectedMethod);
         }
     } else {
         console.error('Form element is missing');
@@ -193,6 +210,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
+            console.log('Anchor link clicked:', this.getAttribute('href'));
 
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
