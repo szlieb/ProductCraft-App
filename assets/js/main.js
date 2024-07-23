@@ -74,94 +74,119 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
     `;
 
-    // Inject header and footer content
-    document.getElementById('header').innerHTML = headerContent;
-    document.getElementById('footer').innerHTML = footerContent;
+    // Inject header and footer content if elements are present
+    const headerElement = document.getElementById('header');
+    const footerElement = document.getElementById('footer');
 
-    // Now that the header is injected, add event listeners for the menu
+    if (headerElement) {
+        headerElement.innerHTML = headerContent;
+    } else {
+        console.error('Header element is missing');
+    }
+
+    if (footerElement) {
+        footerElement.innerHTML = footerContent;
+    } else {
+        console.error('Footer element is missing');
+    }
+
+    // Debugging: Check if elements are present
+    console.log('Header and footer injected');
     const bars = document.querySelector("#menu-btn");
     const menu = document.querySelector("header ul");
     const overlay = document.querySelector(".overlay");
 
-    // Mobile NavBar begins
-    let isOpen = false;
+    console.log('bars:', bars);
+    console.log('menu:', menu);
+    console.log('overlay:', overlay);
 
-    bars.addEventListener('click', function(event) {
-        event.stopPropagation();
-        menu.classList.toggle('open');
-        isOpen = !isOpen;
-        bars.classList.toggle('open');
-        overlay.classList.toggle('active');   
-    });
+    if (bars && menu && overlay) {
+        // Mobile NavBar begins
+        let isOpen = false;
 
-    document.addEventListener('click', function(event) {
-        if (isOpen) {
-            if (!menu.contains(event.target)) {
-                menu.classList.toggle('open');
-                bars.classList.toggle('open');
-                overlay.classList.toggle('active');   
-                isOpen = false;
+        bars.addEventListener('click', function(event) {
+            event.stopPropagation();
+            menu.classList.toggle('open');
+            isOpen = !isOpen;
+            bars.classList.toggle('open');
+            overlay.classList.toggle('active');   
+        });
+
+        document.addEventListener('click', function(event) {
+            if (isOpen) {
+                if (!menu.contains(event.target)) {
+                    menu.classList.toggle('open');
+                    bars.classList.toggle('open');
+                    overlay.classList.toggle('active');   
+                    isOpen = false;
+                }
             }
-        }
-    });
+        });
 
-    menu.addEventListener('click', function(event) {
-        event.stopPropagation();
-    });
+        menu.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    } else {
+        console.error('One or more elements are missing');
+    }
 
     // form validation begins
     const userForm = document.querySelector(".inTouch form");
-    const nameInp = document.querySelector("#name");
-    const nameInp2 = document.querySelector("#name2");
-    const mailInp = document.querySelector("#mail");
-    const phoneInp = document.querySelector("#phone");
-    const messageInp = document.querySelector("#message");
-    const nameWarn = document.querySelector(".nameWarn");
-    const name2Warn = document.querySelector(".name2Warn");
-    const mailWarn = document.querySelector(".mailWarn");
-    const phoneWarn = document.querySelector(".phoneWarn");
-    const messageWarn = document.querySelector(".messageWarn");
+    if (userForm) {
+        const nameInp = document.querySelector("#name");
+        const nameInp2 = document.querySelector("#name2");
+        const mailInp = document.querySelector("#mail");
+        const phoneInp = document.querySelector("#phone");
+        const messageInp = document.querySelector("#message");
+        const nameWarn = document.querySelector(".nameWarn");
+        const name2Warn = document.querySelector(".name2Warn");
+        const mailWarn = document.querySelector(".mailWarn");
+        const phoneWarn = document.querySelector(".phoneWarn");
+        const messageWarn = document.querySelector(".messageWarn");
 
-    userForm.addEventListener("submit", () => {
-        nameWarn.classList.remove("active");
-        mailWarn.classList.remove("active");
-        phoneWarn.classList.remove("active");
-        messageWarn.classList.remove("active");
-        let warnCount = 0;
-        if (!nameInp.value) {
-            nameWarn.classList.add("active");
-            warnCount++;
-        }
-        if (!nameInp2.value) {
-            name2Warn.classList.add("active");
-            warnCount++;
-        }
-        if (!messageInp.value) {
-            messageWarn.classList.add("active");
-            warnCount++;
-        }
-        if (!mailInp.value) {
-            mailWarn.classList.add("active");
-            warnCount++;
-        }
-        if (!phoneInp.value) {
-            phoneWarn.classList.add("active");
-            warnCount++;
-        }
+        userForm.addEventListener("submit", () => {
+            nameWarn.classList.remove("active");
+            mailWarn.classList.remove("active");
+            phoneWarn.classList.remove("active");
+            messageWarn.classList.remove("active");
+            let warnCount = 0;
+            if (!nameInp.value) {
+                nameWarn.classList.add("active");
+                warnCount++;
+            }
+            if (!nameInp2.value) {
+                name2Warn.classList.add("active");
+                warnCount++;
+            }
+            if (!messageInp.value) {
+                messageWarn.classList.add("active");
+                warnCount++;
+            }
+            if (!mailInp.value) {
+                mailWarn.classList.add("active");
+                warnCount++;
+            }
+            if (!phoneInp.value) {
+                phoneWarn.classList.add("active");
+                warnCount++;
+            }
 
-        if (warnCount === 0) {
-            // If there are no validation errors, allow the form to submit
-            return true;
-        } else {
-            // If there are validation errors, prevent the form from submitting
-            return false;
-        }
-    });
+            if (warnCount === 0) {
+                // If there are no validation errors, allow the form to submit
+                return true;
+            } else {
+                // If there are validation errors, prevent the form from submitting
+                return false;
+            }
+        });
 
-    // Add the function for capturing the selected method of contact
-    function captureSelectedMethod() {
-        const selectedMethod = document.querySelector('input[name="method"]:checked').value;
-        document.getElementById('selectedMethod').value = selectedMethod;
+        // Add the function for capturing the selected method of contact
+        function captureSelectedMethod() {
+            const selectedMethod = document.querySelector('input[name="method"]:checked').value;
+            document.getElementById('selectedMethod').value = selectedMethod;
+        }
+    } else {
+        console.error('Form element is missing');
     }
 
     // Smooth scrolling for anchor links
