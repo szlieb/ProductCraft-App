@@ -210,11 +210,16 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            console.log('Anchor link clicked:', this.getAttribute('href'));
+            const targetId = this.getAttribute('href');
+            console.log('Anchor link clicked:', targetId);
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            if (targetId !== '#') {
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            } else {
+                console.warn('Invalid anchor link:', targetId);
+            }
         });
     });
 });
