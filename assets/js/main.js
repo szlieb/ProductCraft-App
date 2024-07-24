@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
             </ul>
             <div class="footerSocial">
-                <a href="#">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-            </div>
+            <a href="https://www.linkedin.com/in/zalmy-lieberman-036644155">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+        </div>
         </div>
         <div class="footerBottom">
             <p>
