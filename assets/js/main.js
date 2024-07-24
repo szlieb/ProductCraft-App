@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="why-choose-us.html">Why Choose Us</a>
             </li>
             <li class="menu-item">
-                <a href="#">Services <span class="arrow"></span></a>
+                <a href="javascript:void(0);" class="services-link" data-no-scroll>Services <span class="arrow"></span></a>
                 <ul class="submenu">
                     <li class="submenu-item"><a href="strategic-consulting.html">Strategic Consulting</a></li>
                     <li class="submenu-item"><a href="product-development.html">Product Development</a></li>
@@ -47,9 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const footerContent = `
     <div class="container">
         <div class="footerTop">
-        <a href="index.html">
-        <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
-    </a>
+            <img src="assets/images/logo.svg" alt="ProductCraft logo" class="footerLogo" />
             <ul>
                 <li>
                     <a href="about.html">About Us</a>
@@ -65,10 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
             </ul>
             <div class="footerSocial">
-            <a href="https://www.linkedin.com/in/zalmy-lieberman-036644155">
-                <i class="fa-brands fa-linkedin"></i>
-            </a>
-        </div>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
         </div>
         <div class="footerBottom">
             <p>
@@ -222,13 +220,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = this.getAttribute('href');
             console.log('Anchor link clicked:', targetId);
 
-            if (targetId !== '#') {
+            // Exclude the "Services" dropdown link from smooth scrolling
+            if (targetId !== '#' && targetId !== '' && !this.hasAttribute('data-no-scroll')) {
                 document.querySelector(targetId).scrollIntoView({
                     behavior: 'smooth'
                 });
             } else {
-                console.warn('Invalid anchor link:', targetId);
+                console.warn('Invalid anchor link or excluded link:', targetId);
             }
         });
     });
+
+    // Prevent default behavior for the "Services" dropdown link
+    const servicesLink = document.querySelector('.services-link');
+    if (servicesLink) {
+        servicesLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('Services dropdown link clicked');
+        });
+    }
 });
