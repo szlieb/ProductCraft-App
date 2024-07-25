@@ -28,8 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <li class="submenu-item"><a href="strategic-consulting.html">Strategic Consulting</a></li>
                     <li class="submenu-item"><a href="product-development.html">Product Development</a></li>
                     <li class="submenu-item"><a href="project-management.html">Project Management</a></li>
-                    <li class="submenu-item"><a href="software-integration-development.html">Software & Integration Development</a></li>
-                    <li class="submenu-item"><a href="testing-iterative-enhancements.html">Testing & Iterative Enhancements</a></li>
+                    <li class="submenu-item"><a href="software-development.html">Software Development</a></li>
+                    <li class="submenu-item">
+                    <a href="iterative-enhancements.html">Iterative Enhancements</a>
+                </li>
                     <li class="submenu-item"><a href="email-marketing.html">Email Marketing</a></li>
                 </ul>
             </li>
