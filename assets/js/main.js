@@ -66,11 +66,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="get-in-touch.html">Get In Touch</a>
                 </li>
             </ul>
-            <div class="footerSocial">
-                <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener noreferrer">
-                    <i class="fa-brands fa-linkedin"></i>
-                </a>
-            </div>
+      <div class="footerSocial">
+    <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer"> <!-- {{ edit_1 }} Placeholder URL -->
+        <i class="fa-brands fa-linkedin"></i>
+    </a>
+</div>
         </div>
         <div class="footerBottom">
             <p>
