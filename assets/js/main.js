@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="footerBottom">
             <p>
-                &copy; Copyright 2024, All Rights Reserved by ProductCraft Solutions
+                &copy; Copyright 2025, All Rights Reserved by ProductCraft Solutions
             </p>
         </div>
     </div>
