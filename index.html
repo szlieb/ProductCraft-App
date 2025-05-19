@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ProductCraft Solutions</title>
         <meta name="description" content="Expert software development, strategic consulting product planning, etc. & project management. Partner with ProductCraft Solutions for innovative solutions." />
+        <meta name="theme-color" content="#ffffff" />
        <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
 
         <link
@@ -23,372 +24,352 @@
     </head>
 
     <body>
-        <div class="overlay"></div>
+        <div class="overlay" role="presentation"></div>
         
         <!-- header starts -->
-        <header id="header"></header>
+        <header id="header" role="banner"></header>
         <!-- header ends -->
 
-        <!-- banner section starts -->
-        <section id="banner">
-            <div class="container">
-                <h1>ProductCraft Solutions</h1>
-                <p>
-                    Your Partner in Product Excellence. We help craft the
-                    solutions to bring your vision to life.
-                </p>
-                <a href="#choose">
-                    <button>Get Started</button>
-                </a>
-            </div>
-        </section>
-        <!-- banner section ends -->
-
-        <!-- about us section starts -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="aboutLeft">
-                    <img src="assets/images/aboutImgGroup.png" alt="About Us" class="about-img" />
-                </div>
-                <div class="aboutRight">
-                    <h2>About <span>Us</span></h2>
+        <main id="main-content" role="main">
+            <!-- banner section starts -->
+            <section id="banner" role="banner" aria-label="Main banner">
+                <div class="container">
+                    <h1>ProductCraft Solutions</h1>
                     <p>
-                        Welcome to ProductCraft Solutions, where innovation
-                        meets expertise! We are a dynamic team of seasoned
-                        professionals in the software and technology industry.
-                        With a wealth of experience under our belts, we pride
-                        ourselves on being the driving force behind turning
-                        software ideas into reality. Whether it's custom tech
-                        solutions or popular platforms like WordPress, Shopify,
-                        and Wix, we specialize in bringing your ideas to life.
+                        Your Partner in Product Excellence. We help craft the
+                        solutions to bring your vision to life.
                     </p>
-                    <p>
-                        Our commitment goes beyond delivering solutions – we are
-                        here to empower your vision, ensuring success in every
-                        step of your technological journey.
-                    </p>
-                    <a href="#inTouch">
-                        <button>Learn More</button>
+                    <a href="#choose" aria-label="Get started with our services">
+                        <button type="button" aria-label="Get started">Get Started</button>
                     </a>
                 </div>
-            </div>
-        </section>
-        <!-- about us section ends -->
+            </section>
+            <!-- banner section ends -->
 
-        <!-- why choose us section starts -->
-        <section id="choose" class="choose">
-            <div class="container">
-                <div class="chooseLeft">
-                    <h2>Why Choose Us</h2>
-                    <strong>Expertise</strong>
-                    <p>
-                        With a powerhouse team boasting diverse industry
-                        experience and proven results, we deliver exceptional
-                        outcomes every time. Our team's collective expertise
-                        spans a wide range of industries and technologies,
-                        allowing us to tackle complex projects with confidence.
-                        From seasoned software developers to visionary product
-                        strategists, our experts are dedicated to bringing
-                        unmatched expertise to every project we undertake.
-                    </p>
-                    <strong>Efficiency</strong>
-                    <p>
-                        In today's fast-paced business environment, time is of
-                        the essence. That's why we prioritize efficiency in
-                        every aspect of our service delivery. Our streamlined
-                        approach to product, project, and quality assurance
-                        processes ensures that your development efforts are
-                        maximized without sacrificing quality. By leveraging the
-                        latest tools and methodologies, we optimize workflows,
-                        eliminate bottlenecks, and accelerate time-to-market,
-                        allowing you to stay ahead of the competition.
-                    </p>
-                    <strong>Cost-Effective</strong>
-                    <p>
-                        We understand the importance of maximizing your budget
-                        resources while still achieving your desired outcomes.
-                        That's why we offer cost-effective solutions that
-                        deliver exceptional value without breaking the bank. By
-                        overseeing QA logistics and optimizing resource
-                        allocation, we help you make the most out of your
-                        investment. With our support, you can allocate your
-                        budget strategically, investing in top-tier developers
-                        and cutting-edge technologies that drive innovation and
-                        growth.
-                    </p>
-                </div>
-                <div class="chooseRight">
-                    <img src="assets/images/chooseImgGroup.png" alt="Why Choose Us" />
-                </div>
-            </div>
-        </section>
-        <!-- why choose us section ends -->
-
-        <!-- services section starts -->
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Our <span>Services</span></h2>
-                <div class="serviceWrap">
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img
-                                src="assets/images/delivery-management.svg"
-                                alt="Delivery-Management"
-                            />
-                        </div>
-                        <h3>Strategic Consulting</h3>
-                        <a href="strategic-consulting.html"> <button>Learn More</button></a>
+            <!-- about us section starts -->
+            <section id="about" class="about" aria-labelledby="about-heading">
+                <div class="container">
+                    <div class="aboutLeft">
+                        <img src="assets/images/aboutImgGroup.png" alt="Team collaboration and innovation at ProductCraft Solutions" class="about-img" />
                     </div>
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img src="assets/images/qa.svg" alt="Quality Assurance" />
-                        </div>
-                        <h3>Product Development</h3>
-                        <a href="product-development.html"> <button>Learn More</button></a>
-                    </div>
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img src="assets/images/strategy.png" alt="Strategy" />
-                        </div>
-                        <h3>Project Management</h3>
-                        <a href="project-management.html"> <button>Learn More</button></a>
-                    </div>
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img src="assets/images/strategy.png" alt="Strategy" />
-                        </div>
-                        <h3>Software Development</h3>
-                        <a href="software-development.html"> <button>Learn More</button></a>
-                    </div>
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img
-                                src="assets/images/delivery-management.svg"
-                                alt="delivery Management"
-                            />
-                        </div>
-                        <h3>Iterative Enhancements</h3>
-                        <a href="iterative-enhancements.html"> <button>Learn More</button></a>
-                    </div>
-                    <div class="singleService">
-                        <div class="serviceImg">
-                            <img src="assets/images/qa.svg" alt="Quality Assurance" />
-                        </div>
-                        <h3>Email Marketing</h3>
-                        <a href="email-marketing.html"> <button>Learn More</button></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- services section ends -->
-
-        <!-- what we offer section starts -->
-        <section id="offer" class="offer">
-            <div class="container">
-                <div class="offerLeft">
-                    <img src="assets/images/offerImgGroup.png" alt="Offer" />
-                </div>
-                <div class="offerRight">
-                    <h2>What We Offer</h2>
-                    <strong>Consultancy</strong>
-                    <p>
-                        Expert guidance on product strategy, development, and
-                        innovation, encompassing both Technology Consultancy and
-                        general Product Consultancy.
-                    </p>
-                    <strong>Product Project Management</strong>
-                    <p>
-                        Efficient management of software projects from inception
-                        to successful delivery.
-                    </p>
-                    <strong>Software Development</strong>
-                    <p>
-                        Expert software development services, leveraging
-                        cutting-edge technologies to build innovative solutions.
-                    </p>
-                    <strong>Innovation Solutions</strong>
-                    <p>
-                        Unlock innovative ideas and solutions that can propel
-                        your business forward.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- what we offer section ends -->
-
-        <!-- contact us section starts -->
-        <section id="inTouch" class="inTouch">
-            <div class="container">
-                <div class="touchLeft">
-                    <h2>Get In <span>Touch</span></h2>
-                    <p>Our friendly team would love to hear from you.</p>
-                    <!-- contact form -->
-                    <!-- contact form with Formspree integration -->
-                    <form
-                        action="https://formspree.io/f/mwkdjaad"
-                        method="POST"
-                    >
-                        <p class="touchFormSug">
-                            "<span>*</span>" Indicates Required Fields
+                    <div class="aboutRight">
+                        <h2 id="about-heading">About <span>Us</span></h2>
+                        <p>
+                            Welcome to ProductCraft Solutions, where innovation
+                            meets expertise! We are a dynamic team of seasoned
+                            professionals in the software and technology industry.
+                            With a wealth of experience under our belts, we pride
+                            ourselves on being the driving force behind turning
+                            software ideas into reality. Whether it's custom tech
+                            solutions or popular platforms like WordPress, Shopify,
+                            and Wix, we specialize in bringing your ideas to life.
                         </p>
-                        <div class="touchInpRow">
-                            <div class="touchSingleInp">
-                                <label for="name"
-                                    >Full Name <span>*</span></label
-                                >
+                        <p>
+                            Our commitment goes beyond delivering solutions – we are
+                            here to empower your vision, ensuring success in every
+                            step of your technological journey.
+                        </p>
+                        <a href="#inTouch" aria-label="Learn more about our services">
+                            <button type="button" aria-label="Learn more">Learn More</button>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- about us section ends -->
+
+            <!-- why choose us section starts -->
+            <section id="choose" class="choose" aria-labelledby="why-choose-heading">
+                <div class="container">
+                    <div class="chooseLeft">
+                        <h2 id="why-choose-heading">Why Choose Us</h2>
+                        <strong>Expertise</strong>
+                        <p>
+                            With a powerhouse team boasting diverse industry
+                            experience and proven results, we deliver exceptional
+                            outcomes every time. Our team's collective expertise
+                            spans a wide range of industries and technologies,
+                            allowing us to tackle complex projects with confidence.
+                            From seasoned software developers to visionary product
+                            strategists, our experts are dedicated to bringing
+                            unmatched expertise to every project we undertake.
+                        </p>
+                        <strong>Efficiency</strong>
+                        <p>
+                            In today's fast-paced business environment, time is of
+                            the essence. That's why we prioritize efficiency in
+                            every aspect of our service delivery. Our streamlined
+                            approach to product, project, and quality assurance
+                            processes ensures that your development efforts are
+                            maximized without sacrificing quality. By leveraging the
+                            latest tools and methodologies, we optimize workflows,
+                            eliminate bottlenecks, and accelerate time-to-market,
+                            allowing you to stay ahead of the competition.
+                        </p>
+                        <strong>Cost-Effective</strong>
+                        <p>
+                            We understand the importance of maximizing your budget
+                            resources while still achieving your desired outcomes.
+                            That's why we offer cost-effective solutions that
+                            deliver exceptional value without breaking the bank. By
+                            overseeing QA logistics and optimizing resource
+                            allocation, we help you make the most out of your
+                            investment. With our support, you can allocate your
+                            budget strategically, investing in top-tier developers
+                            and cutting-edge technologies that drive innovation and
+                            growth.
+                        </p>
+                    </div>
+                    <div class="chooseRight">
+                        <img src="assets/images/chooseImgGroup.png" alt="Illustration representing our expertise, efficiency, and cost-effective solutions" />
+                    </div>
+                </div>
+            </section>
+            <!-- why choose us section ends -->
+
+            <!-- services section starts -->
+            <section id="services" class="services" aria-labelledby="services-heading">
+                <div class="container">
+                    <h2 id="services-heading">Our <span>Services</span></h2>
+                    <div class="serviceWrap" role="list">
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img
+                                    src="assets/images/delivery-management.svg"
+                                    alt="Strategic consulting icon representing business strategy and planning"
+                                />
+                            </div>
+                            <h3>Strategic Consulting</h3>
+                            <a href="strategic-consulting.html" aria-label="Learn more about our strategic consulting services">
+                                <button type="button" aria-label="Learn more about strategic consulting">Learn More</button>
+                            </a>
+                        </div>
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img src="assets/images/qa.svg" alt="Product development icon representing innovation and creation" />
+                            </div>
+                            <h3>Product Development</h3>
+                            <a href="product-development.html" aria-label="Learn more about our product development services">
+                                <button type="button" aria-label="Learn more about product development">Learn More</button>
+                            </a>
+                        </div>
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img src="assets/images/strategy.png" alt="Project management icon representing organization and planning" />
+                            </div>
+                            <h3>Project Management</h3>
+                            <a href="project-management.html" aria-label="Learn more about our project management services">
+                                <button type="button" aria-label="Learn more about project management">Learn More</button>
+                            </a>
+                        </div>
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img src="assets/images/strategy.png" alt="Software development icon representing coding and technology" />
+                            </div>
+                            <h3>Software Development</h3>
+                            <a href="software-development.html" aria-label="Learn more about our software development services">
+                                <button type="button" aria-label="Learn more about software development">Learn More</button>
+                            </a>
+                        </div>
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img
+                                    src="assets/images/delivery-management.svg"
+                                    alt="Iterative enhancements icon representing continuous improvement"
+                                />
+                            </div>
+                            <h3>Iterative Enhancements</h3>
+                            <a href="iterative-enhancements.html" aria-label="Learn more about our iterative enhancement services">
+                                <button type="button" aria-label="Learn more about iterative enhancements">Learn More</button>
+                            </a>
+                        </div>
+                        <div class="singleService" role="listitem">
+                            <div class="serviceImg">
+                                <img src="assets/images/qa.svg" alt="Email marketing icon representing digital communication" />
+                            </div>
+                            <h3>Email Marketing</h3>
+                            <a href="email-marketing.html" aria-label="Learn more about our email marketing services">
+                                <button type="button" aria-label="Learn more about email marketing">Learn More</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- services section ends -->
+
+            <!-- what we offer section starts -->
+            <section id="offer" class="offer" aria-labelledby="offer-heading">
+                <div class="container">
+                    <div class="offerLeft">
+                        <img src="assets/images/offerImgGroup.png" alt="Illustration of our comprehensive service offerings" />
+                    </div>
+                    <div class="offerRight">
+                        <h2 id="offer-heading">What We Offer</h2>
+                        <strong>Consultancy</strong>
+                        <p>
+                            Expert guidance on product strategy, development, and
+                            innovation, encompassing both Technology Consultancy and
+                            general Product Consultancy.
+                        </p>
+                        <strong>Product Project Management</strong>
+                        <p>
+                            Efficient management of software projects from inception
+                            to successful delivery.
+                        </p>
+                        <strong>Software Development</strong>
+                        <p>
+                            Expert software development services, leveraging
+                            cutting-edge technologies to build innovative solutions.
+                        </p>
+                        <strong>Innovation Solutions</strong>
+                        <p>
+                            Unlock innovative ideas and solutions that can propel
+                            your business forward.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <!-- what we offer section ends -->
+
+            <!-- contact us section starts -->
+            <section id="inTouch" class="inTouch" aria-labelledby="contact-heading">
+                <div class="container">
+                    <div class="touchLeft">
+                        <h2 id="contact-heading">Get In <span>Touch</span></h2>
+                        <p>Our friendly team would love to hear from you.</p>
+                        <!-- contact form -->
+                        <form
+                            action="https://formspree.io/f/mwkdjaad"
+                            method="POST"
+                            aria-labelledby="contact-form-heading"
+                        >
+                            <p class="touchFormSug" id="required-fields-note">
+                                "<span aria-hidden="true">*</span>" Indicates Required Fields
+                            </p>
+                            <div class="form-group">
+                                <label for="name" id="name-label">Name <span aria-hidden="true">*</span></label>
                                 <input
                                     type="text"
-                                    name="name"
                                     id="name"
-                                    required
-                                />
-                                <span>First Name</span>
-                                <small class="nameWarn"
-                                    >This Field is Required</small
-                                >
-                            </div>
-                            <div class="touchSingleInp">
-                                <input
-                                    type="text"
                                     name="name"
-                                    id="name2"
                                     required
+                                    aria-required="true"
+                                    aria-labelledby="name-label"
+                                    aria-describedby="name-error"
                                 />
-                                <span>Last Name</span>
-                                <small class="name2Warn"
-                                    >This Field is Required</small
-                                >
+                                <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
-                        </div>
-                        <div class="touchInpRow">
-                            <div class="touchSingleInp companyInp">
-                                <label for="company">Company Name</label>
-                                <input
-                                    type="text"
-                                    name="company"
-                                    id="company"
-                                />
-                            </div>
-                        </div>
-                        <div class="touchInpRow">
-                            <div class="touchSingleInp">
-                                <label for="mail">Email <span>*</span></label>
+                            <div class="form-group">
+                                <label for="email" id="email-label">Email <span aria-hidden="true">*</span></label>
                                 <input
                                     type="email"
-                                    name="_replyto"
-                                    id="mail"
+                                    id="email"
+                                    name="email"
                                     required
+                                    aria-required="true"
+                                    aria-labelledby="email-label"
+                                    aria-describedby="email-error"
                                 />
-                                <small class="mailWarn"
-                                    >This Field is Required</small
-                                >
+                                <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
-                            <div class="touchSingleInp">
-                                <label for="phone"
-                                    >Phone number <span>*</span></label
-                                >
+                            <div class="form-group">
+                                <label for="phone" id="phone-label">Phone Number</label>
                                 <input
-                                    type="text"
-                                    name="phone"
+                                    type="tel"
                                     id="phone"
-                                    required
+                                    name="phone"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    placeholder="123-456-7890"
+                                    aria-labelledby="phone-label"
+                                    aria-describedby="phone-error"
                                 />
-                                <small class="phoneWarn"
-                                    >This Field is Required</small
-                                >
+                                <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
-                        </div>
-                        <div class="touchInpRow">
-                            <div class="touchInpBig">
-                                <label for="message"
-                                    >Message <span>*</span></label
-                                >
+                            <div class="form-group">
+                                <label for="message" id="message-label">Message <span aria-hidden="true">*</span></label>
                                 <textarea
-                                    name="message"
                                     id="message"
+                                    name="message"
                                     required
+                                    aria-required="true"
+                                    aria-labelledby="message-label"
+                                    aria-describedby="message-error"
                                 ></textarea>
-                                <small class="messageWarn"
-                                    >This Field is Required</small
-                                >
+                                <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
-                        </div>
-                        <div class="contentMethod">
-                            <p>Preferred Method Of Contact</p>
-                            <div class="methodItemWrap">
-                                <div class="methodItem">
-                                    <input
-                                        type="radio"
-                                        name="method"
-                                        id="method1"
-                                        value="text"
-                                    />
-                                    <label for="method1">Text</label>
-                                </div>
-                                <div class="methodItem">
-                                    <input
-                                        type="radio"
-                                        name="method"
-                                        id="method2"
-                                        value="email"
-                                    />
-                                    <label for="method2">Email</label>
-                                </div>
-                                <div class="methodItem">
-                                    <input
-                                        type="radio"
-                                        name="method"
-                                        id="method3"
-                                        value="phone call"
-                                    />
-                                    <label for="method3">Phone Call</label>
-                                </div>
+                            <div class="form-group">
+                                <fieldset>
+                                    <legend id="preferred-contact-method">Preferred Contact Method <span aria-hidden="true">*</span></legend>
+                                    <div class="methodItemWrap" role="radiogroup" aria-labelledby="preferred-contact-method">
+                                        <div class="methodItem">
+                                            <input
+                                                type="radio"
+                                                name="method"
+                                                id="method1"
+                                                value="text"
+                                                required
+                                                aria-required="true"
+                                            />
+                                            <label for="method1">Text</label>
+                                        </div>
+                                        <div class="methodItem">
+                                            <input
+                                                type="radio"
+                                                name="method"
+                                                id="method2"
+                                                value="email"
+                                                required
+                                                aria-required="true"
+                                            />
+                                            <label for="method2">Email</label>
+                                        </div>
+                                        <div class="methodItem">
+                                            <input
+                                                type="radio"
+                                                name="method"
+                                                id="method3"
+                                                value="phone call"
+                                                required
+                                                aria-required="true"
+                                            />
+                                            <label for="method3">Phone Call</label>
+                                        </div>
+                                    </div>
+                                </fieldset>
                             </div>
-                        </div>
-                        <input
-                            type="hidden"
-                            name="selectedMethod"
-                            id="selectedMethod"
-                        />
-                                        <!-- Add reCAPTCHA widget here -->
-               <!--- <div class="g-recaptcha" data-sitekey="6Lf3MxkqAAAAAO7M0LqLjRsxJeDRdKUiKKCiuFSd"></div>
-                "></div>-->
-
-                        <button
-                            class="touchBtn"
-                            type="submit"
-                            onclick="captureSelectedMethod()"
-                        >
-                            Send A Message
-                        </button>
-                    </form>
-                    <!-- contact form ends -->
+                            <input
+                                type="hidden"
+                                name="selectedMethod"
+                                id="selectedMethod"
+                            />
+                            <button type="submit" aria-label="Submit contact form">Submit</button>
+                        </form>
+                    </div>
+                    <div class="touchRight">
+                        <h3>
+                            Discover the Benefits of Working with ProductCraft
+                            Solutions
+                        </h3>
+                        <p>
+                            We are passionate about helping people or businesses
+                            like yours succeed. Get in touch to learn more about our
+                            expertise and how we can help you achieve your goals.
+                        </p>
+                        <p>
+                            Our team is dedicated to delivering exceptional results
+                            that exceed your expectations. Tap into our expertise
+                            and experience a swift and efficient turnaround, from
+                            start to finish. We'll work closely with you and your
+                            team to understand your needs and tailor our approach to
+                            meet your unique challenges.
+                        </p>
+                    </div>
                 </div>
-                <div class="touchRight">
-                    <h3>
-                        Discover the Benefits of Working with ProductCraft
-                        Solutions
-                    </h3>
-                    <p>
-                        We are passionate about helping people or businesses
-                        like yours succeed. Get in touch to learn more about our
-                        expertise and how we can help you achieve your goals.
-                    </p>
-                    <p>
-                        Our team is dedicated to delivering exceptional results
-                        that exceed your expectations. Tap into our expertise
-                        and experience a swift and efficient turnaround, from
-                        start to finish. We'll work closely with you and your
-                        team to understand your needs and tailor our approach to
-                        meet your unique challenges.
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- contact us section ends -->
+            </section>
+            <!-- contact us section ends -->
+        </main>
 
         <!-- footer section starts -->
-        <footer id="footer"></footer>
+        <footer id="footer" role="contentinfo"></footer>
         <!-- footer section ends -->
 
         <!-- javascript link -->
