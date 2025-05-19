@@ -11,27 +11,58 @@
     scroll-behavior: smooth;
     font-family: "Outfit", sans-serif;
 }
+
+:root {
+    /* Updated color variables for better contrast */
+    --primary-color: #0056b3; /* Darker blue for better contrast */
+    --primary-hover: #003d7a; /* Even darker for hover states */
+    --text-light: #ffffff;
+    --text-dark: #1a1a1a;
+    --text-gray: #4a4a4a; /* Darker gray for better contrast */
+    --background-light: #ffffff;
+    --background-dark: #1a1a1a;
+    --background-gray: #f4f4f4;
+    --error-color: #d32f2f; /* Darker red for better contrast */
+    --success-color: #1b5e20; /* Darker green for better contrast */
+    --focus-outline: 2px solid #0056b3;
+    --focus-outline-offset: 2px;
+}
+
 body {
     scroll-behavior: smooth;
+    color: var(--text-dark);
+    background-color: var(--background-light);
 }
+
 li {
     list-style: none;
 }
+
 a {
-    color: inherit;
+    color: var(--primary-color);
     text-decoration: none;
+}
+
+a:hover {
+    color: var(--primary-hover);
 }
 
 button {
     font-family: "Gilroy-Regular", sans-serif;
     cursor: pointer;
     transition: 0.3s;
-    background-color: #06498F;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
 }
+
 button:hover {
-    background-color: #06488fac;
+    background-color: var(--primary-hover);
     transform: translateY(-3px);
 }
+
 .container {
     max-width: 1250px;
     margin: 0 auto;
@@ -105,7 +136,7 @@ button:hover {
 
 /* header section styles */
 header {
-    background-color: #141414;
+    background-color: var(--background-dark);
     padding: 10px 0;
 }
 header .container {
@@ -128,11 +159,11 @@ header .container ul li a {
     font-size: 28px;
     font-family: "Gilroy-Regular", sans-serif;
     font-weight: 400;
-    color: #fff;
+    color: var(--text-light);
     transition: 0.3s;
 }
 header .container ul li a:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
 }
 header .container .fa-bars {
     font-size: 25px;
@@ -153,7 +184,7 @@ header .container .fa-bars {
     font-size: 86px;
     font-weight: 800;
     line-height: 98px;
-    color: #fff;
+    color: var(--text-light);
     text-align: center;
     margin-bottom: 20px;
 }
@@ -166,7 +197,7 @@ header .container .fa-bars {
     font-weight: 300;
     line-height: 34px;
     text-align: center;
-    color: #fff;
+    color: var(--text-light);
     margin-bottom: 30px;
 }
 
@@ -207,7 +238,7 @@ header .container .fa-bars {
     font-size: 66px;
     font-weight: 800;
     line-height: 76px;
-    color: #06498F;
+    color: var(--primary-color);
     margin-bottom: 25px;
 }
 .aboutRight h2 span {
@@ -217,7 +248,7 @@ header .container .fa-bars {
     font-size: 22px;
     font-weight: 300;
     line-height: 28px;
-    color: #666666;
+    color: var(--text-gray);
     margin-bottom: 15px;
 }
 
@@ -248,7 +279,7 @@ header .container .fa-bars {
 /* why choose us section styles */
 .choose {
     padding: 140px 90px;
-    background-color: #282828;
+    background-color: var(--background-dark);
 }
 .choose .container {
     display: flex;
@@ -263,7 +294,7 @@ header .container .fa-bars {
     font-size: 56px;
     font-weight: 800;
     line-height: 66px;
-    color: #fff;
+    color: var(--text-light);
     margin-bottom: 20px;
 }
 
@@ -271,7 +302,7 @@ header .container .fa-bars {
     font-size: 28px;
     font-weight: 800;
     line-height: 36px;
-    color: #fff;
+    color: var(--text-light);
     display: block;
     margin-bottom: 10px;
 }
@@ -280,7 +311,7 @@ header .container .fa-bars {
     font-weight: 300;
     line-height: 32px;
     margin-bottom: 30px;
-    color: #fff;
+    color: var(--text-light);
 }
 
 .chooseRight {
@@ -300,7 +331,7 @@ header .container .fa-bars {
     font-size: 56px;
     font-weight: 800;
     line-height: 66px;
-    color: #06498F;
+    color: var(--primary-color);
     text-align: center;
     margin-bottom: 50px;
 }
@@ -405,7 +436,7 @@ h3 {
 /* what we offer section styles */
 .offer {
     padding: 140px 90px;
-    background-color: #282828;
+    background-color: var(--background-dark);
 }
 .offer .container {
     display: flex;
@@ -427,14 +458,14 @@ h3 {
     font-size: 56px;
     font-weight: 800;
     line-height: 66px;
-    color: #fff;
+    color: var(--text-light);
     margin-bottom: 20px;
 }
 .offerRight strong {
     font-size: 28px;
     font-weight: 800;
     line-height: 36px;
-    color: #fff;
+    color: var(--text-light);
     display: block;
     margin-bottom: 10px;
 }
@@ -443,7 +474,7 @@ h3 {
     font-weight: 300;
     line-height: 32px;
     margin-bottom: 30px;
-    color: #fff;
+    color: var(--text-light);
 }
 /* what we offer section styles ends */
 
@@ -467,7 +498,7 @@ h3 {
     font-weight: 900;
     line-height: 76px;
     font-family: "Gilroy-Heavy", sans-serif;
-    color: #232323;
+    color: var(--text-dark);
     margin-bottom: 25px;
 }
 .touchLeft h2 span {
@@ -479,7 +510,7 @@ h3 {
     font-weight: 400;
     line-height: 31px;
     font-family: "Gilroy-Regular", sans-serif;
-    color: #232323;
+    color: var(--text-gray);
     margin-bottom: 30px;
 }
 
@@ -509,7 +540,7 @@ h3 {
     font-weight: 500;
     line-height: 28px;
     font-family: "Gilroy-Medium", sans-serif;
-    color: #232323;
+    color: var(--text-dark);
     display: block;
     position: relative;
 }
@@ -522,13 +553,13 @@ h3 {
     width: 100%;
     height: 52px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--text-gray);
     padding: 12px 16px;
     font-size: 16px;
     font-weight: 400;
     font-family: "Gilroy-Medium", sans-serif;
     box-shadow: 0px 1px 2px 0px #1018280D;
-    background-color: #f4f4f5;
+    background-color: var(--background-light);
 }
 .touchLeft form .touchInpRow .touchSingleInp span {
     font-size: 14px;
@@ -542,13 +573,13 @@ h3 {
     width: 100%;
     height: 120px;
     border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--text-gray);
     padding: 12px 16px;
     font-size: 16px;
     font-weight: 400;
     font-family: "Gilroy-Medium", sans-serif;
     box-shadow: 0px 1px 2px 0px #1018280D;
-    background-color: #f4f4f5;
+    background-color: var(--background-light);
 }
 
 .touchLeft form .touchInpRow small {
@@ -571,7 +602,7 @@ h3 {
     font-weight: 500;
     line-height: 28px;
     font-family: "Gilroy-Medium", sans-serif;
-    color: #232323;
+    color: var(--text-dark);
     margin-bottom: 15px;
 }
 .contentMethod p span {
@@ -655,7 +686,7 @@ h3 {
 /* footer section styles */
 footer {
     padding: 0 70px;
-    background-color: #06498F;
+    background-color: var(--primary-color);
 }
 
 .footerTop {
@@ -678,11 +709,11 @@ footer {
     font-weight: 400;
     line-height: 28px;
     font-family: "Gilroy-Regular", sans-serif;
-    color: #fff;
+    color: var(--text-light);
     transition: 0.3s;
 }
 .footerTop ul li a:hover {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .footerSocial {
@@ -714,7 +745,7 @@ footer {
     font-size: 14px;
     font-weight: 300;
     line-height: 22px;
-    color: #fff;
+    color: var(--text-light);
     text-align: center;
 }
 
@@ -1134,14 +1165,6 @@ header .container ul .submenu {
 /* Enhance SEO ends */
 
 /* Accessibility Styles */
-:root {
-    --focus-outline: 2px solid #007bff;
-    --focus-outline-offset: 2px;
-    --error-color: #dc3545;
-    --success-color: #28a745;
-}
-
-/* Focus styles */
 :focus {
     outline: var(--focus-outline);
     outline-offset: var(--focus-outline-offset);
@@ -1171,8 +1194,10 @@ header .container ul .submenu {
 .form-group textarea {
     width: 100%;
     padding: 0.5rem;
-    border: 1px solid #ccc;
+    border: 1px solid var(--text-gray);
     border-radius: 4px;
+    background-color: var(--background-light);
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
@@ -1222,18 +1247,18 @@ button {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-light);
     font-weight: 500;
     transition: background-color 0.2s;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-hover);
 }
 
 button:focus {
-    background-color: #0056b3;
+    background-color: var(--primary-hover);
     box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 
@@ -1242,8 +1267,8 @@ button:focus {
     position: absolute;
     top: -40px;
     left: 0;
-    background: #007bff;
-    color: white;
+    background: var(--primary-color);
+    color: var(--text-light);
     padding: 8px;
     z-index: 100;
     transition: top 0.2s;
@@ -1262,5 +1287,149 @@ button:focus {
     input,
     textarea {
         border: 2px solid currentColor;
+    }
+}
+
+/* Contact Form Styles */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+    min-width: 0; /* Prevents flex items from overflowing */
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.required-mark {
+    color: var(--error-color);
+    margin-left: 2px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--text-gray);
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 4px;
+    display: none;
+}
+
+.error-message:not(:empty) {
+    display: block;
+}
+
+/* Radio button group styles */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+legend {
+    font-weight: 500;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+}
+
+.methodItemWrap {
+    display: flex;
+    gap: 24px;
+}
+
+.methodItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.methodItem input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+}
+
+.methodItem label {
+    margin: 0;
+    font-weight: normal;
+}
+
+/* Submit button styles */
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}
+
+.contact-form button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.4);
+}
+
+/* Required fields note */
+.touchFormSug {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .methodItemWrap {
+        flex-direction: column;
+        gap: 12px;
     }
 }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     skipLink.href = '#main-content';
     skipLink.className = 'skip-link';
     skipLink.textContent = 'Skip to main content';
-    document.body.insertBefore(skipLink, document.body.firstChild);
+    document.body.appendChild(skipLink);
 
     // Form validation
     const forms = document.querySelectorAll('form');
@@ -17,98 +17,115 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Handle form submission
     function handleFormSubmit(event) {
+        event.preventDefault();
         const form = event.target;
-        const formData = new FormData(form);
         let isValid = true;
 
-        // Validate required fields
-        form.querySelectorAll('[required]').forEach(field => {
-            if (!field.value.trim()) {
-                isValid = false;
-                showError(field, 'This field is required');
-            } else {
-                clearError(field);
-            }
-        });
-
-        // Validate email format
-        const emailField = form.querySelector('input[type="email"]');
-        if (emailField && emailField.value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailField.value)) {
-                isValid = false;
-                showError(emailField, 'Please enter a valid email address');
-            }
+        // Validate first name
+        const firstName = form.querySelector('#firstName');
+        if (!firstName.value.trim()) {
+            showError(firstName, 'First name is required');
+            isValid = false;
         }
 
-        // Validate phone format
-        const phoneField = form.querySelector('input[type="tel"]');
-        if (phoneField && phoneField.value) {
+        // Validate last name
+        const lastName = form.querySelector('#lastName');
+        if (!lastName.value.trim()) {
+            showError(lastName, 'Last name is required');
+            isValid = false;
+        }
+
+        // Validate email
+        const email = form.querySelector('#email');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!email.value.trim()) {
+            showError(email, 'Email is required');
+            isValid = false;
+        } else if (!emailRegex.test(email.value)) {
+            showError(email, 'Please enter a valid email address');
+            isValid = false;
+        }
+
+        // Validate phone (optional)
+        const phone = form.querySelector('#phone');
+        if (phone.value.trim()) {
             const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-            if (!phoneRegex.test(phoneField.value)) {
+            if (!phoneRegex.test(phone.value)) {
+                showError(phone, 'Please enter a valid phone number (123-456-7890)');
                 isValid = false;
-                showError(phoneField, 'Please enter a valid phone number (123-456-7890)');
             }
         }
 
-        // Validate radio button selection
-        const radioGroup = form.querySelector('[role="radiogroup"]');
-        if (radioGroup) {
-            const selectedRadio = radioGroup.querySelector('input[type="radio"]:checked');
-            if (!selectedRadio) {
-                isValid = false;
-                const errorMessage = 'Please select a preferred contact method';
-                const errorElement = document.createElement('div');
-                errorElement.className = 'error-message';
-                errorElement.textContent = errorMessage;
-                errorElement.setAttribute('role', 'alert');
-                errorElement.setAttribute('aria-live', 'polite');
-                radioGroup.parentElement.appendChild(errorElement);
-            }
+        // Validate message
+        const message = form.querySelector('#message');
+        if (!message.value.trim()) {
+            showError(message, 'Message is required');
+            isValid = false;
         }
 
-        if (!isValid) {
-            event.preventDefault();
-            // Focus the first field with an error
-            const firstError = form.querySelector('.error-message:not(:empty)');
-            if (firstError) {
-                const field = form.querySelector(`[aria-describedby="${firstError.id}"]`);
-                if (field) {
-                    field.focus();
-                }
+        // Validate contact method
+        const contactMethod = form.querySelector('input[name="method"]:checked');
+        if (!contactMethod) {
+            const methodError = form.querySelector('.methodItemWrap');
+            if (methodError) {
+                methodError.setAttribute('aria-invalid', 'true');
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'error-message';
+                errorMessage.textContent = 'Please select a preferred contact method';
+                errorMessage.setAttribute('role', 'alert');
+                errorMessage.setAttribute('aria-live', 'polite');
+                methodError.appendChild(errorMessage);
+            }
+            isValid = false;
+        }
+
+        if (isValid) {
+            // Update hidden field with selected method
+            const selectedMethod = form.querySelector('#selectedMethod');
+            if (selectedMethod && contactMethod) {
+                selectedMethod.value = contactMethod.value;
+            }
+            
+            // Submit the form
+            form.submit();
+        } else {
+            // Focus the first invalid field
+            const firstInvalidField = form.querySelector('[aria-invalid="true"]');
+            if (firstInvalidField) {
+                firstInvalidField.focus();
             }
         }
     }
 
     // Handle form input
     function handleFormInput(event) {
-        const field = event.target;
-        if (field.hasAttribute('required') && field.value.trim()) {
-            clearError(field);
-        }
+        const input = event.target;
+        clearError(input);
     }
 
     // Show error message
-    function showError(field, message) {
-        const errorId = field.getAttribute('aria-describedby');
-        if (errorId) {
-            const errorElement = document.getElementById(errorId);
-            if (errorElement) {
-                errorElement.textContent = message;
-                field.setAttribute('aria-invalid', 'true');
+    function showError(input, message) {
+        const formGroup = input.closest('.form-group');
+        if (formGroup) {
+            const errorDiv = formGroup.querySelector('.error-message');
+            if (errorDiv) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
             }
+            input.setAttribute('aria-invalid', 'true');
         }
     }
 
     // Clear error message
-    function clearError(field) {
-        const errorId = field.getAttribute('aria-describedby');
-        if (errorId) {
-            const errorElement = document.getElementById(errorId);
-            if (errorElement) {
-                errorElement.textContent = '';
-                field.removeAttribute('aria-invalid');
+    function clearError(input) {
+        const formGroup = input.closest('.form-group');
+        if (formGroup) {
+            const errorDiv = formGroup.querySelector('.error-message');
+            if (errorDiv) {
+                errorDiv.textContent = '';
+                errorDiv.style.display = 'none';
             }
+            input.removeAttribute('aria-invalid');
         }
     }
 
@@ -231,34 +248,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile menu functionality
-    const bars = document.querySelector("#menu-btn");
-    const menu = document.querySelector("header ul");
-    const overlay = document.querySelector(".overlay");
+    const menuBtn = document.querySelector('.menu-btn');
+    const mobileMenu = document.querySelector('.mobile-only');
+    const overlay = document.querySelector('.overlay');
 
-    if (bars && menu && overlay) {
-        let isOpen = false;
-
-        bars.addEventListener('click', function(event) {
-            event.stopPropagation();
-            menu.classList.toggle('open');
-            isOpen = !isOpen;
-            bars.classList.toggle('open');
+    if (menuBtn && mobileMenu && overlay) {
+        menuBtn.addEventListener('click', function() {
+            this.classList.toggle('open');
+            mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
-            bars.setAttribute('aria-expanded', isOpen);
+            document.body.style.overflow = this.classList.contains('open') ? 'hidden' : '';
         });
 
-        document.addEventListener('click', function(event) {
-            if (isOpen && !menu.contains(event.target)) {
-                menu.classList.remove('open');
-                bars.classList.remove('open');
-                overlay.classList.remove('active');
-                isOpen = false;
-                bars.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        menu.addEventListener('click', function(event) {
-            event.stopPropagation();
+        overlay.addEventListener('click', function() {
+            menuBtn.classList.remove('open');
+            mobileMenu.classList.remove('active');
+            this.classList.remove('active');
+            document.body.style.overflow = '';
         });
     }
 
@@ -279,18 +285,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if (targetId !== '#' && targetId !== '' && !this.hasAttribute('data-no-scroll')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                    // Update focus for keyboard users
-                    targetElement.setAttribute('tabindex', '-1');
-                    targetElement.focus();
-                }
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Update focus for accessibility
+                target.setAttribute('tabindex', '-1');
+                target.focus();
             }
         });
     });
