@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     skipLink.href = '#main-content';
     skipLink.className = 'skip-link';
     skipLink.textContent = 'Skip to main content';
-    document.body.appendChild(skipLink);
+    document.body.insertBefore(skipLink, document.body.firstChild);
 
     // Form validation
     const forms = document.querySelectorAll('form');
@@ -258,6 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('active');
             overlay.classList.toggle('active');
             document.body.style.overflow = this.classList.contains('open') ? 'hidden' : '';
+            this.setAttribute('aria-expanded', this.classList.contains('open'));
         });
 
         overlay.addEventListener('click', function() {
@@ -265,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.remove('active');
             this.classList.remove('active');
             document.body.style.overflow = '';
+            menuBtn.setAttribute('aria-expanded', 'false');
         });
     }
 
@@ -298,4 +300,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Ensure all content is within landmarks
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        // Move any content outside of landmarks into the main landmark
+        const bodyChildren = Array.from(document.body.children);
+        bodyChildren.forEach(child => {
+            if (!child.hasAttribute('role') && 
+                child !== mainContent && 
+                child !== headerElement && 
+                child !== footerElement && 
+                child !== skipLink) {
+                mainContent.appendChild(child);
+            }
+        });
+    }
 });
