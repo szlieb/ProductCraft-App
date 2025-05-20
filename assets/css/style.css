@@ -386,40 +386,40 @@ header .container .fa-bars {
     align-items: center;
     text-align: center;
     margin-bottom: 30px;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
 
-.singleService[role="button"] {
+.service-button {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 15px;
+}
+
+.service-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.service-button:focus {
     outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.4);
 }
 
-.singleService[role="button"]:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
+.service-button:active {
+    transform: translateY(0);
 }
 
-.singleService[role="button"]:focus:not(:focus-visible) {
-    outline: none;
-}
-
-.singleService[role="button"]:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
-
-.singleService[role="button"][aria-pressed="true"] {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.singleService:hover {
-    transform: scale(1.1);
-}
-
-.singleService .serviceImg {
+.serviceImg {
     width: 102px;
     height: 102px;
     border-radius: 50%;

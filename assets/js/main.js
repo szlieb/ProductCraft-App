@@ -301,28 +301,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Service cards button functionality
-    const serviceCards = document.querySelectorAll('.singleService[role="button"]');
-    serviceCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const isPressed = this.getAttribute('aria-pressed') === 'true';
-            this.setAttribute('aria-pressed', !isPressed);
-            // Toggle the service text visibility
-            const serviceText = this.querySelector('.serviceText');
-            if (serviceText) {
-                serviceText.style.display = isPressed ? 'none' : 'block';
-            }
-        });
-
-        // Handle keyboard interaction
-        card.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
-        });
-    });
-
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
