@@ -215,11 +215,8 @@ header .container .fa-bars {
     text-align: center;
     margin-bottom: 20px;
 }
-#banner h1 span {
-    color: #06498F;
-}
 
-#banner p {
+#banner .banner-subheading {
     font-size: 24px;
     font-weight: 300;
     line-height: 34px;
@@ -228,10 +225,13 @@ header .container .fa-bars {
     margin-bottom: 30px;
 }
 
+#banner h1 span {
+    color: #06498F;
+}
+
 #banner button {
     width: auto;
     height: auto;
-    /* background-color: #06498F; */
     color: #fff;
     border: none;
     font-size: 18px;
