@@ -233,8 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
             </ul>
             <div class="footerSocial">
-                <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile">
+                <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile (opens in new tab)">
                     <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    <span class="visually-hidden">Opens in new tab</span>
                 </a>
             </div>
         </div>
