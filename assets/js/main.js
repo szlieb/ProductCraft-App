@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mobile menu functionality
     const menuBtn = document.querySelector('.menu-btn');
-    const mobileMenu = document.querySelector('.mobile-only');
+    const mobileMenu = document.querySelector('header .container ul');
     const overlay = document.querySelector('.overlay');
 
     if (menuBtn && mobileMenu && overlay) {

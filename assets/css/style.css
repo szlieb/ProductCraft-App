@@ -977,23 +977,32 @@ footer {
         align-items: flex-start;
         justify-content: flex-start;
         padding: 20px 20px;
+        z-index: 1000;
     }
 
     header .container ul.active {
         left: 0;
     }
+
     header .container ul li {
         margin-left: 0;
+        width: 100%;
     }
 
     header .container ul li:not(:last-child) {
         margin-bottom: 30px;
     }
 
+    header .container ul li a {
+        font-size: 20px;
+        display: block;
+        width: 100%;
+    }
+
     .menu-btn {
         display: inline-block;
         cursor: pointer;
-        z-index: 10;
+        z-index: 1001;
         position: relative;
     }
 
@@ -1038,18 +1047,9 @@ footer {
         transform: rotate3d(0, 0, 1, -45deg);
     }
 
-    .open {
-        opacity: 1;
-        left: 0 !important;
-        z-index: 99999;
-    }
-
-    .mobile-only {
-        display: block;
-    }
-
     .overlay.active {
         opacity: 1;
+        pointer-events: all;
     }
 
     /* Mobile NavBar editing end  */
