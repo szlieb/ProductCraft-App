@@ -1,4 +1,73 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Only show offline message if we detect an actual network error
+    let hasNetworkError = false;
+
+    // Function to check if we can reach the server
+    async function checkConnection() {
+        try {
+            const response = await fetch(window.location.href, { method: 'HEAD' });
+            return response.ok;
+        } catch (error) {
+            return false;
+        }
+    }
+
+    // Only show offline message if we detect an actual network error
+    window.addEventListener('error', async (event) => {
+        if (event.target.tagName === 'IMG' || event.target.tagName === 'SCRIPT') {
+            const isConnected = await checkConnection();
+            if (!isConnected && !hasNetworkError) {
+                hasNetworkError = true;
+                showOfflineMessage();
+            }
+        }
+    });
+
+    // Listen for online/offline events
+    window.addEventListener('online', () => {
+        hideOfflineMessage();
+        hasNetworkError = false;
+    });
+
+    window.addEventListener('offline', () => {
+        if (!hasNetworkError) {
+            hasNetworkError = true;
+            showOfflineMessage();
+        }
+    });
+
+    function showOfflineMessage() {
+        // Only show if not already showing
+        if (!document.getElementById('offline-message')) {
+            const offlineMessage = document.createElement('div');
+            offlineMessage.id = 'offline-message';
+            offlineMessage.setAttribute('role', 'alert');
+            offlineMessage.innerHTML = `
+                <div class="offline-content">
+                    <h2>Connection Error</h2>
+                    <p>Unable to load some resources. Please check your internet connection and try again.</p>
+                    <button onclick="window.location.reload()">Retry</button>
+                </div>
+            `;
+            document.body.appendChild(offlineMessage);
+        }
+    }
+
+    function hideOfflineMessage() {
+        const offlineMessage = document.getElementById('offline-message');
+        if (offlineMessage) {
+            offlineMessage.remove();
+        }
+    }
+
+    // Add error handling for image loading
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'assets/images/placeholder.png';
+            this.alt = 'Image failed to load';
+        });
+    });
+
     console.log('DOM fully loaded and parsed');
 
     // Form validation
