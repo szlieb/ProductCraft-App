@@ -56,11 +56,38 @@ button {
     border: none;
     padding: 12px 20px;
     border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
 }
 
 button:hover {
     background-color: var(--primary-hover);
     transform: translateY(-3px);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.4);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+/* Secondary button style */
+button.secondary {
+    background-color: var(--background-gray);
+    color: var(--text-dark);
+    border: 2px solid var(--text-gray);
+}
+
+button.secondary:hover {
+    background-color: #e0e0e0;
+}
+
+button.secondary:focus {
+    box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.3);
 }
 
 .container {
@@ -364,6 +391,28 @@ header .container .fa-bars {
     overflow: hidden;
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
+}
+
+.singleService[role="button"] {
+    outline: none;
+}
+
+.singleService[role="button"]:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.singleService[role="button"]:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.singleService[role="button"]:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.singleService[role="button"][aria-pressed="true"] {
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .singleService:hover {
@@ -898,6 +947,10 @@ footer {
     .footerTop ul li a {
         font-size: 15px;
     }
+
+    .section-subheading {
+        font-size: 22px;
+    }
 }
 
 @media (max-width: 800px) {
@@ -1022,6 +1075,10 @@ footer {
     footer {
         padding: 0 30px;
     }
+
+    .section-subheading {
+        font-size: 22px;
+    }
 }
 
 @media (max-width: 650px) {
@@ -1077,6 +1134,11 @@ footer {
     }
     .touchRight h3 {
         font-size: 28px;
+    }
+
+    .section-subheading {
+        font-size: 20px;
+        line-height: 28px;
     }
 }
 
@@ -1166,8 +1228,8 @@ header .container ul .submenu {
 
 /* Accessibility Styles */
 :focus {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 :focus:not(:focus-visible) {
@@ -1175,8 +1237,8 @@ header .container ul .submenu {
 }
 
 :focus-visible {
-    outline: var(--focus-outline);
-    outline-offset: var(--focus-outline-offset);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 /* Form styles */
@@ -1193,29 +1255,40 @@ header .container ul .submenu {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.5rem;
-    border: 1px solid var(--text-gray);
+    padding: 12px;
+    border: 2px solid var(--text-gray);
     border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
     background-color: var(--background-light);
     color: var(--text-dark);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
+    outline: none;
 }
 
-/* Error message styles */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+/* Error state styles */
+.form-group input.error,
+.form-group textarea.error {
+    border-color: var(--error-color);
+    background-color: #fff8f8;
+}
+
 .error-message {
     color: var(--error-color);
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
-    display: none;
-}
-
-.error-message:not(:empty) {
-    display: block;
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: 500;
 }
 
 /* Radio button group styles */
@@ -1269,13 +1342,17 @@ button:focus {
     left: 0;
     background: var(--primary-color);
     color: var(--text-light);
-    padding: 8px;
+    padding: 8px 16px;
     z-index: 100;
     transition: top 0.2s;
+    font-weight: 500;
+    border-radius: 0 0 4px 0;
 }
 
 .skip-link:focus {
     top: 0;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.4);
 }
 
 /* High contrast mode support */
@@ -1287,6 +1364,10 @@ button:focus {
     input,
     textarea {
         border: 2px solid currentColor;
+    }
+    
+    :focus {
+        outline: 2px solid currentColor;
     }
 }
 
@@ -1327,33 +1408,39 @@ button:focus {
 .form-group textarea {
     width: 100%;
     padding: 12px;
-    border: 1px solid var(--text-gray);
+    border: 2px solid var(--text-gray);
     border-radius: 4px;
     font-size: 16px;
     transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--background-light);
+    color: var(--text-dark);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 86, 179, 0.2);
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3);
     outline: none;
 }
 
-.form-group textarea {
-    min-height: 120px;
-    resize: vertical;
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666666;
+    opacity: 1;
+}
+
+/* Error state styles */
+.form-group input.error,
+.form-group textarea.error {
+    border-color: var(--error-color);
+    background-color: #fff8f8;
 }
 
 .error-message {
     color: var(--error-color);
     font-size: 14px;
     margin-top: 4px;
-    display: none;
-}
-
-.error-message:not(:empty) {
-    display: block;
+    font-weight: 500;
 }
 
 /* Radio button group styles */
