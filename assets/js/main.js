@@ -9,124 +9,140 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.insertBefore(skipLink, document.body.firstChild);
 
     // Form validation
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', handleFormSubmit);
-        form.addEventListener('input', handleFormInput);
-    });
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        const formInputs = contactForm.querySelectorAll('input, textarea');
+        const errorMessages = {};
 
-    // Handle form submission
-    function handleFormSubmit(event) {
-        event.preventDefault();
-        const form = event.target;
-        let isValid = true;
+        // Initialize error messages
+        formInputs.forEach(input => {
+            const errorId = input.id + '-error';
+            const errorElement = document.getElementById(errorId);
+            if (errorElement) {
+                errorMessages[input.id] = errorElement;
+            }
+        });
 
-        // Validate first name
-        const firstName = form.querySelector('#firstName');
-        if (!firstName.value.trim()) {
-            showError(firstName, 'First name is required');
-            isValid = false;
+        // Add method error message element
+        const methodError = document.getElementById('method-error');
+        if (methodError) {
+            errorMessages['method'] = methodError;
         }
 
-        // Validate last name
-        const lastName = form.querySelector('#lastName');
-        if (!lastName.value.trim()) {
-            showError(lastName, 'Last name is required');
-            isValid = false;
-        }
+        // Real-time validation
+        formInputs.forEach(input => {
+            input.addEventListener('input', () => {
+                validateField(input);
+            });
 
-        // Validate email
-        const email = form.querySelector('#email');
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!email.value.trim()) {
-            showError(email, 'Email is required');
-            isValid = false;
-        } else if (!emailRegex.test(email.value)) {
-            showError(email, 'Please enter a valid email address');
-            isValid = false;
-        }
+            input.addEventListener('blur', () => {
+                validateField(input);
+            });
+        });
 
-        // Validate phone (optional)
-        const phone = form.querySelector('#phone');
-        if (phone.value.trim()) {
-            const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
-            if (!phoneRegex.test(phone.value)) {
-                showError(phone, 'Please enter a valid phone number (123-456-7890)');
+        // Radio button validation
+        const radioButtons = contactForm.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', () => {
+                validateRadioGroup();
+            });
+        });
+
+        function validateField(input) {
+            const errorElement = errorMessages[input.id];
+            if (!errorElement) return;
+
+            let isValid = true;
+            let errorMessage = '';
+
+            if (input.required && !input.value.trim()) {
                 isValid = false;
+                errorMessage = `${input.getAttribute('aria-label') || input.name} is required`;
+            } else if (input.type === 'email' && input.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value.trim())) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid email address';
+                }
+            } else if (input.type === 'tel' && input.value.trim()) {
+                const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+                if (!phoneRegex.test(input.value.trim())) {
+                    isValid = false;
+                    errorMessage = 'Please enter a valid phone number (123-456-7890)';
+                }
             }
-        }
 
-        // Validate message
-        const message = form.querySelector('#message');
-        if (!message.value.trim()) {
-            showError(message, 'Message is required');
-            isValid = false;
-        }
-
-        // Validate contact method
-        const contactMethod = form.querySelector('input[name="method"]:checked');
-        if (!contactMethod) {
-            const methodError = form.querySelector('.methodItemWrap');
-            if (methodError) {
-                methodError.setAttribute('aria-invalid', 'true');
-                const errorMessage = document.createElement('div');
-                errorMessage.className = 'error-message';
-                errorMessage.textContent = 'Please select a preferred contact method';
-                errorMessage.setAttribute('role', 'alert');
-                errorMessage.setAttribute('aria-live', 'polite');
-                methodError.appendChild(errorMessage);
-            }
-            isValid = false;
-        }
-
-        if (isValid) {
-            // Update hidden field with selected method
-            const selectedMethod = form.querySelector('#selectedMethod');
-            if (selectedMethod && contactMethod) {
-                selectedMethod.value = contactMethod.value;
-            }
+            input.setAttribute('aria-invalid', !isValid);
+            errorElement.textContent = errorMessage;
             
+            if (isValid) {
+                input.classList.remove('error');
+            } else {
+                input.classList.add('error');
+            }
+
+            return isValid;
+        }
+
+        function validateRadioGroup() {
+            const radioGroup = contactForm.querySelector('.methodItemWrap');
+            const selectedMethod = contactForm.querySelector('input[name="method"]:checked');
+            const errorElement = errorMessages['method'];
+            
+            if (!errorElement) return;
+
+            if (!selectedMethod) {
+                radioGroup.setAttribute('aria-invalid', 'true');
+                errorElement.textContent = 'Please select a preferred contact method';
+                return false;
+            }
+
+            radioGroup.setAttribute('aria-invalid', 'false');
+            errorElement.textContent = '';
+            return true;
+        }
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            let firstInvalidField = null;
+
+            // Validate all fields
+            formInputs.forEach(input => {
+                if (!validateField(input)) {
+                    isValid = false;
+                    if (!firstInvalidField) {
+                        firstInvalidField = input;
+                    }
+                }
+            });
+
+            // Validate radio group
+            if (!validateRadioGroup()) {
+                isValid = false;
+                if (!firstInvalidField) {
+                    firstInvalidField = contactForm.querySelector('.methodItemWrap');
+                }
+            }
+
+            if (!isValid) {
+                // Focus the first invalid field
+                if (firstInvalidField) {
+                    firstInvalidField.focus();
+                }
+                return;
+            }
+
+            // Update hidden input with selected method
+            const selectedMethod = contactForm.querySelector('input[name="method"]:checked');
+            if (selectedMethod) {
+                document.getElementById('selectedMethod').value = selectedMethod.value;
+            }
+
             // Submit the form
-            form.submit();
-        } else {
-            // Focus the first invalid field
-            const firstInvalidField = form.querySelector('[aria-invalid="true"]');
-            if (firstInvalidField) {
-                firstInvalidField.focus();
-            }
-        }
-    }
-
-    // Handle form input
-    function handleFormInput(event) {
-        const input = event.target;
-        clearError(input);
-    }
-
-    // Show error message
-    function showError(input, message) {
-        const formGroup = input.closest('.form-group');
-        if (formGroup) {
-            const errorDiv = formGroup.querySelector('.error-message');
-            if (errorDiv) {
-                errorDiv.textContent = message;
-                errorDiv.style.display = 'block';
-            }
-            input.setAttribute('aria-invalid', 'true');
-        }
-    }
-
-    // Clear error message
-    function clearError(input) {
-        const formGroup = input.closest('.form-group');
-        if (formGroup) {
-            const errorDiv = formGroup.querySelector('.error-message');
-            if (errorDiv) {
-                errorDiv.textContent = '';
-                errorDiv.style.display = 'none';
-            }
-            input.removeAttribute('aria-invalid');
-        }
+            this.submit();
+        });
     }
 
     // Header content
