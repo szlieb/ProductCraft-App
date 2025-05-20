@@ -1393,3 +1393,40 @@ legend {
         gap: 1rem;
     }
 }
+
+/* Skip links styles */
+.skip-links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+    transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 2px solid var(--text-light);
+    outline-offset: -2px;
+}
+
+/* Ensure the first skip link is visible when focused */
+.skip-link:first-child:focus {
+    top: 0;
+}
+
+/* Ensure subsequent skip links are positioned below the first one when focused */
+.skip-link:not(:first-child):focus {
+    top: 40px;
+}
