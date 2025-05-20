@@ -42,8 +42,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Radio button validation
         const radioButtons = contactForm.querySelectorAll('input[type="radio"]');
+        let previousRadio = null;
+
         radioButtons.forEach(radio => {
-            radio.addEventListener('change', () => {
+            radio.addEventListener('click', (e) => {
+                if (radio === previousRadio) {
+                    // If clicking the same radio button that's already selected, unselect it
+                    e.preventDefault();
+                    radio.checked = false;
+                    previousRadio = null;
+                } else {
+                    // Update the previous radio reference
+                    previousRadio = radio;
+                }
                 validateRadioGroup();
             });
         });
@@ -91,12 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             if (!errorElement) return;
 
-            if (!selectedMethod) {
-                radioGroup.setAttribute('aria-invalid', 'true');
-                errorElement.textContent = 'Please select a preferred contact method';
-                return false;
-            }
-
+            // Since it's optional, we don't need to show an error if nothing is selected
             radioGroup.setAttribute('aria-invalid', 'false');
             errorElement.textContent = '';
             return true;
@@ -118,14 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Validate radio group
-            if (!validateRadioGroup()) {
-                isValid = false;
-                if (!firstInvalidField) {
-                    firstInvalidField = contactForm.querySelector('.methodItemWrap');
-                }
-            }
-
+            // No need to validate radio group since it's optional
             if (!isValid) {
                 // Focus the first invalid field
                 if (firstInvalidField) {
@@ -134,10 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Update hidden input with selected method
+            // Update hidden input with selected method if one is selected
             const selectedMethod = contactForm.querySelector('input[name="method"]:checked');
             if (selectedMethod) {
                 document.getElementById('selectedMethod').value = selectedMethod.value;
+            } else {
+                document.getElementById('selectedMethod').value = '';
             }
 
             // Submit the form
