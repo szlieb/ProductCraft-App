@@ -327,13 +327,15 @@
                                 <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             <div class="form-group">
-                                <label id="phone-label" for="phone">Phone Number</label>
+                                <label id="phone-label" for="phone">Phone Number<span class="required-mark" aria-hidden="true">*</span></label>
                                 <input
                                     type="tel"
                                     id="phone"
                                     name="phone"
                                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                     placeholder="123-456-7890"
+                                    required
+                                    aria-required="true"
                                     aria-labelledby="phone-label"
                                     aria-describedby="phone-error"
                                     aria-invalid="false"
