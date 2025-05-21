@@ -235,6 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         class="services-link" 
                         aria-expanded="false" 
                         aria-controls="services-submenu"
+                        aria-haspopup="true"
                     >
                         Services <span class="arrow" aria-hidden="true"></span>
                     </button>
