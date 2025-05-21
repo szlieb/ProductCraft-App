@@ -1,27 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Only show offline message if we detect an actual network error
     let hasNetworkError = false;
-
-    // Function to check if we can reach the server
-    async function checkConnection() {
-        try {
-            const response = await fetch(window.location.href, { method: 'HEAD' });
-            return response.ok;
-        } catch (error) {
-            return false;
-        }
-    }
-
-    // Only show offline message if we detect an actual network error
-    window.addEventListener('error', async (event) => {
-        if (event.target.tagName === 'IMG' || event.target.tagName === 'SCRIPT') {
-            const isConnected = await checkConnection();
-            if (!isConnected && !hasNetworkError) {
-                hasNetworkError = true;
-                showOfflineMessage();
-            }
-        }
-    });
+    let isInitialLoad = true;
 
     // Listen for online/offline events
     window.addEventListener('online', () => {
@@ -30,11 +10,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     window.addEventListener('offline', () => {
-        if (!hasNetworkError) {
+        // Ignore offline events during initial load or if already showing error
+        if (!hasNetworkError && !isInitialLoad) {
             hasNetworkError = true;
             showOfflineMessage();
         }
     });
+
+    // Set initial load to false after a short delay
+    setTimeout(() => {
+        isInitialLoad = false;
+    }, 1000);
 
     function showOfflineMessage() {
         // Only show if not already showing
