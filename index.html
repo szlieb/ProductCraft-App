@@ -284,68 +284,64 @@
                             <p class="touchFormSug" id="required-fields-note">
                                 "<span class="required-mark" aria-hidden="true">*</span>" Indicates Required Fields
                             </p>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstName" id="firstName-label">First Name <span class="required-mark" aria-hidden="true">*</span></label>
-                                    <input
-                                        type="text"
-                                        id="firstName"
-                                        name="firstName"
-                                        required
-                                        aria-required="true"
-                                        aria-labelledby="firstName-label"
-                                        aria-describedby="firstName-error"
-                                        aria-invalid="false"
-                                    />
-                                    <div id="firstName-error" class="error-message" role="alert" aria-live="polite"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastName" id="lastName-label">Last Name <span class="required-mark" aria-hidden="true">*</span></label>
-                                    <input
-                                        type="text"
-                                        id="lastName"
-                                        name="lastName"
-                                        required
-                                        aria-required="true"
-                                        aria-labelledby="lastName-label"
-                                        aria-describedby="lastName-error"
-                                        aria-invalid="false"
-                                    />
-                                    <div id="lastName-error" class="error-message" role="alert" aria-live="polite"></div>
-                                </div>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email" id="email-label">Email <span class="required-mark" aria-hidden="true">*</span></label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        required
-                                        aria-required="true"
-                                        aria-labelledby="email-label"
-                                        aria-describedby="email-error"
-                                        aria-invalid="false"
-                                    />
-                                    <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone" id="phone-label">Phone Number</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                        placeholder="123-456-7890"
-                                        aria-labelledby="phone-label"
-                                        aria-describedby="phone-error"
-                                        aria-invalid="false"
-                                    />
-                                    <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
-                                </div>
+                            <div class="form-group">
+                                <label id="firstName-label" for="firstName">First Name<span class="required-mark" aria-hidden="true">*</span></label>
+                                <input
+                                    type="text"
+                                    id="firstName"
+                                    name="firstName"
+                                    required
+                                    aria-required="true"
+                                    aria-labelledby="firstName-label"
+                                    aria-describedby="firstName-error"
+                                    aria-invalid="false"
+                                />
+                                <div id="firstName-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             <div class="form-group">
-                                <label for="message" id="message-label">Message <span class="required-mark" aria-hidden="true">*</span></label>
+                                <label id="lastName-label" for="lastName">Last Name<span class="required-mark" aria-hidden="true">*</span></label>
+                                <input
+                                    type="text"
+                                    id="lastName"
+                                    name="lastName"
+                                    required
+                                    aria-required="true"
+                                    aria-labelledby="lastName-label"
+                                    aria-describedby="lastName-error"
+                                    aria-invalid="false"
+                                />
+                                <div id="lastName-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+                            <div class="form-group">
+                                <label id="email-label" for="email">Email<span class="required-mark" aria-hidden="true">*</span></label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    required
+                                    aria-required="true"
+                                    aria-labelledby="email-label"
+                                    aria-describedby="email-error"
+                                    aria-invalid="false"
+                                />
+                                <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+                            <div class="form-group">
+                                <label id="phone-label" for="phone">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                    placeholder="123-456-7890"
+                                    aria-labelledby="phone-label"
+                                    aria-describedby="phone-error"
+                                    aria-invalid="false"
+                                />
+                                <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
+                            </div>
+                            <div class="form-group">
+                                <label id="message-label" for="message">Message<span class="required-mark" aria-hidden="true">*</span></label>
                                 <textarea
                                     id="message"
                                     name="message"
@@ -358,44 +354,43 @@
                                 <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
                             </div>
                             <div class="form-group">
-                                <fieldset>
-                                    <legend id="preferred-contact-method">Preferred Contact Method</legend>
-                                    <div class="methodItemWrap" role="radiogroup" aria-labelledby="preferred-contact-method">
-                                        <div class="methodItem">
-                                            <input
-                                                type="radio"
-                                                name="method"
-                                                id="method1"
-                                                value="text"
-                                            />
-                                            <label for="method1">Text</label>
-                                        </div>
-                                        <div class="methodItem">
-                                            <input
-                                                type="radio"
-                                                name="method"
-                                                id="method2"
-                                                value="email"
-                                            />
-                                            <label for="method2">Email</label>
-                                        </div>
-                                        <div class="methodItem">
-                                            <input
-                                                type="radio"
-                                                name="method"
-                                                id="method3"
-                                                value="phone call"
-                                            />
-                                            <label for="method3">Phone Call</label>
-                                        </div>
+                                <fieldset class="methodItemWrap" role="radiogroup" aria-labelledby="method-legend">
+                                    <legend id="method-legend">Preferred Contact Method</legend>
+                                    <div class="methodItem">
+                                        <input
+                                            type="radio"
+                                            id="text"
+                                            name="method"
+                                            value="text"
+                                        />
+                                        <label for="text">Text</label>
+                                    </div>
+                                    <div class="methodItem">
+                                        <input
+                                            type="radio"
+                                            id="email"
+                                            name="method"
+                                            value="email"
+                                        />
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="methodItem">
+                                        <input
+                                            type="radio"
+                                            id="phone"
+                                            name="method"
+                                            value="phone"
+                                        />
+                                        <label for="phone">Phone Call</label>
                                     </div>
                                     <div id="method-error" class="error-message" role="alert" aria-live="polite"></div>
                                 </fieldset>
                             </div>
                             <input
                                 type="hidden"
-                                name="selectedMethod"
                                 id="selectedMethod"
+                                name="selectedMethod"
+                                value=""
                             />
                             <button type="submit" aria-label="Submit contact form">Submit</button>
                         </form>
