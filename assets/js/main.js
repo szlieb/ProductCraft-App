@@ -217,32 +217,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="why-choose-us.html">Why Choose Us</a>
                 </li>
                 <li class="menu-item">
-                    <button 
-                        class="services-link" 
-                        aria-expanded="false" 
-                        aria-controls="services-submenu"
+                    <a 
+                        href="#"
+                        class="solutions-link"
+                        aria-expanded="false"
+                        aria-controls="solutions-submenu"
                         aria-haspopup="true"
+                        role="button"
+                        tabindex="0"
                     >
-                        Services <span class="arrow" aria-hidden="true"></span>
-                    </button>
-                    <ul id="services-submenu" class="submenu" role="menu">
-                        <li class="submenu-item" role="none">
-                            <a href="strategic-consulting.html" role="menuitem">Strategic Consulting</a>
+                        Solutions <span class="arrow" aria-hidden="true"></span>
+                    </a>
+                    <ul id="solutions-submenu" class="submenu" role="menu">
+                        <li class="submenu-item menu-item" role="none">
+                            <a href="#" class="services-link" aria-expanded="false" aria-controls="services-submenu" aria-haspopup="true" role="button" tabindex="0">
+                                Services <span class="arrow" aria-hidden="true"></span>
+                            </a>
+                            <ul id="services-submenu" class="submenu" role="menu">
+                                <li class="submenu-item" role="none">
+                                    <a href="strategic-consulting.html" role="menuitem">Strategic Consulting</a>
+                                </li>
+                                <li class="submenu-item" role="none">
+                                    <a href="product-development.html" role="menuitem">Product Development</a>
+                                </li>
+                                <li class="submenu-item" role="none">
+                                    <a href="project-management.html" role="menuitem">Project Management</a>
+                                </li>
+                                <li class="submenu-item" role="none">
+                                    <a href="software-development.html" role="menuitem">Software Development</a>
+                                </li>
+                                <li class="submenu-item" role="none">
+                                    <a href="iterative-enhancements.html" role="menuitem">Iterative Enhancements</a>
+                                </li>
+                                <li class="submenu-item" role="none">
+                                    <a href="email-marketing.html" role="menuitem">Email Marketing</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="submenu-item" role="none">
-                            <a href="product-development.html" role="menuitem">Product Development</a>
+                            <a href="industries.html" role="menuitem">Industries We Serve</a>
                         </li>
                         <li class="submenu-item" role="none">
-                            <a href="project-management.html" role="menuitem">Project Management</a>
-                        </li>
-                        <li class="submenu-item" role="none">
-                            <a href="software-development.html" role="menuitem">Software Development</a>
-                        </li>
-                        <li class="submenu-item" role="none">
-                            <a href="iterative-enhancements.html" role="menuitem">Iterative Enhancements</a>
-                        </li>
-                        <li class="submenu-item" role="none">
-                            <a href="email-marketing.html" role="menuitem">Email Marketing</a>
+                            <a href="faq.html" role="menuitem">FAQ</a>
                         </li>
                     </ul>
                 </li>
@@ -337,16 +353,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Services dropdown functionality
+    // Solutions dropdown functionality
+    const solutionsLink = document.querySelector('.solutions-link');
+    if (solutionsLink) {
+        solutionsLink.addEventListener('click', function(e) {
+            if (e.target === solutionsLink && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                const submenu = document.getElementById('solutions-submenu');
+                if (submenu) {
+                    submenu.style.display = isExpanded ? 'none' : 'block';
+                }
+            }
+        });
+    }
+    // Services dropdown functionality (now nested under Solutions)
     const servicesLink = document.querySelector('.services-link');
     if (servicesLink) {
         servicesLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            this.setAttribute('aria-expanded', !isExpanded);
-            const submenu = document.getElementById('services-submenu');
-            if (submenu) {
-                submenu.style.display = isExpanded ? 'none' : 'block';
+            if (e.target === servicesLink && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) {
+                e.preventDefault();
+                const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !isExpanded);
+                const submenu = document.getElementById('services-submenu');
+                if (submenu) {
+                    submenu.style.display = isExpanded ? 'none' : 'block';
+                }
             }
         });
     }

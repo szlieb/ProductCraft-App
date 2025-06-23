@@ -1576,3 +1576,56 @@ img[alt="Image failed to load"] {
         font-size: 14px;
     }
 }
+
+/* Nested submenu (third-level) styles for Services inside Solutions */
+.menu-item .submenu {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 220px;
+    background: #333;
+    display: none;
+    z-index: 1000;
+}
+.menu-item:hover > .submenu,
+.menu-item:focus-within > .submenu {
+    display: block;
+}
+.menu-item .menu-item .submenu {
+    left: 100%;
+    top: 0;
+    margin-left: 0.5rem;
+    min-width: 220px;
+    background: #232323;
+    display: none;
+}
+.menu-item .menu-item:hover > .submenu,
+.menu-item .menu-item:focus-within > .submenu {
+    display: block;
+}
+.menu-item .submenu-item.menu-item > a {
+    position: relative;
+    padding-right: 30px;
+}
+.menu-item .submenu-item.menu-item > a .arrow {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+}
+.menu-item .submenu {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+.menu-item .submenu .submenu {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+@media (max-width: 1000px) {
+    .menu-item .submenu,
+    .menu-item .menu-item .submenu {
+        position: static;
+        left: auto;
+        top: auto;
+        margin-left: 0;
+        box-shadow: none;
+    }
+}
