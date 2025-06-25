@@ -13,17 +13,21 @@
 }
 
 :root {
-    /* Updated color variables for better contrast */
-    --primary-color: #0056b3; /* Darker blue for better contrast */
-    --primary-hover: #003d7a; /* Even darker for hover states */
+    --primary-color: #0056b3;
+    --primary-hover: #003d7a;
+    --accent-color: #00b4d8;
     --text-light: #ffffff;
     --text-dark: #1a1a1a;
-    --text-gray: #4a4a4a; /* Darker gray for better contrast */
-    --background-light: #ffffff;
-    --background-dark: #1a1a1a;
+    --text-gray: #4a4a4a;
+    --background-light: #f8f9fa;
+    --background-dark: #181a1b;
     --background-gray: #f4f4f4;
-    --error-color: #d32f2f; /* Darker red for better contrast */
-    --success-color: #1b5e20; /* Darker green for better contrast */
+    --border-radius: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.07);
+    --section-padding: 60px 0;
+    --container-padding: 24px 18px;
+    --error-color: #d32f2f;
+    --success-color: #1b5e20;
     --focus-outline: 2px solid #0056b3;
     --focus-outline-offset: 2px;
 }
@@ -32,6 +36,8 @@ body {
     scroll-behavior: smooth;
     color: var(--text-dark);
     background-color: var(--background-light);
+    font-size: 17px;
+    line-height: 1.7;
 }
 
 li {
@@ -91,9 +97,9 @@ button.secondary:focus {
 }
 
 .container {
-    max-width: 1250px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 10px 15px;
+    padding: var(--container-padding);
 }
 
 .text-container {
@@ -163,9 +169,10 @@ button.secondary:focus {
 
 /* header section styles */
 header {
-    background-color: var(--background-dark);
-    padding: 10px 0;
+    background: var(--background-dark);
+    padding: 12px 0;
     position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 /* Hide any browser-generated UI elements in the header */
@@ -192,18 +199,18 @@ header .container ul {
 }
 
 header .container ul li {
-    margin-left: 30px;
+    margin-left: 18px;
 }
 
 header .container ul li a {
-    font-size: 28px;
-    font-family: "Gilroy-Regular", sans-serif;
-    font-weight: 400;
-    color: var(--text-light);
-    transition: 0.3s;
+    font-size: 20px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
 }
-header .container ul li a:hover {
-    color: rgba(255, 255, 255, 0.9);
+header .container ul li a:hover, header .container ul li a:focus {
+    background: var(--primary-color);
+    color: #fff;
 }
 header .container .fa-bars {
     font-size: 25px;
@@ -256,7 +263,7 @@ header .container .fa-bars {
 
 /* about us section styles */
 .about {
-    padding: 140px 90px;
+    padding: var(--section-padding);
 }
 .about .container {
     display: flex;
@@ -318,7 +325,7 @@ header .container .fa-bars {
 
 /* why choose us section styles */
 .choose {
-    padding: 140px 90px;
+    padding: var(--section-padding);
     background-color: var(--background-dark);
 }
 .choose .container {
@@ -365,139 +372,83 @@ header .container .fa-bars {
 
 /* services section styles */
 .services {
-    padding: 140px 70px;
+    background: #fff;
+    padding: 48px 0;
 }
 .services h2 {
-    font-size: 56px;
-    font-weight: 800;
-    line-height: 66px;
-    color: var(--primary-color);
     text-align: center;
-    margin-bottom: 50px;
+    font-size: 2rem;
+    font-family: "Gilroy-Bold", "Outfit", sans-serif;
+    font-weight: 700;
+    margin-bottom: 24px;
 }
-.services h2 span {
-    color: #232323;
-}
-
 .serviceWrap {
     display: flex;
-    align-items: stretch;
-    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 24px 32px;
+    justify-content: center;
+    align-items: stretch;
+    overflow-x: unset;
+    padding-bottom: 0;
 }
-
-.serviceWrap a {
-    margin-top: auto;
-}
-
 .singleService {
-    width: 400px;
-    min-height: 230px;
-    padding: 5px 15px;
+    flex: 1 1 28%;
+    min-width: 200px;
+    max-width: 300px;
+    margin-bottom: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    transition: background 0.2s, transform 0.2s;
+    padding: 18px 10px;
 }
-
-.service-button {
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    margin-top: 15px;
+.singleService:hover {
+    background: #f4f8fb;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
-
-.service-button:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-}
-
-.service-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.4);
-}
-
-.service-button:active {
-    transform: translateY(0);
-}
-
 .serviceImg {
-    width: 102px;
-    height: 102px;
-    border-radius: 50%;
-    border: 1px solid #0C195E;
-    display: grid;
-    place-items: center;
-    margin-bottom: 15px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    background: none !important;
+    border: none !important;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-h3 {
-    font-size: 31px;
+.singleService h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
 }
-
-.serviceText {
-    width: 100%;
-    padding: 15px;
-    position: absolute;
-    top: 135px;
-    left: 0;
-    transition: 0.3s;
-    background-color: #ff00;
-    box-sizing: border-box;
-    overflow: hidden;
-    max-height: 200px;
+.singleService p {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
 }
-
-.singleService:hover .serviceText {
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    overflow-y: auto;
-    border-radius: 10px;
-    width: 100%; /* Keep the width at 100% */
-    left: 0%; /* Keep the left position at 0% */
-    padding: 15px 30px 30px 30px; /* Increase bottom padding */
-    display: flex; /* Use Flexbox to center the text */
-    text-align: left; /* Center the text */
+@media (max-width: 900px) {
+    .serviceWrap {
+        gap: 16px 8px;
+    }
+    .singleService {
+        flex: 1 1 45%;
+        min-width: 140px;
+        max-width: 100%;
+    }
 }
-
-.serviceText {
-    position: relative;
-}
-
-.serviceText h3 {
-    position: sticky;
-    top: 0;
-    background-color: #000;
-    color: #fff;
-    padding: 15px;
-    z-index: 1;
-}
-
-.serviceText p {
-    display: none;
-    font-size: 18px;
-}
-
-.singleService:hover .serviceText p {
-    display: block;
+@media (max-width: 600px) {
+    .services h2 { font-size: 1.2rem; }
+    .serviceWrap { gap: 8px; }
+    .singleService { flex: 1 1 100%; min-width: 100px; max-width: 100%; padding: 10px 2px; }
 }
 /* services section styles ends */
 
 /* what we offer section styles */
 .offer {
-    padding: 140px 90px;
+    padding: var(--section-padding);
     background-color: var(--background-dark);
 }
 .offer .container {
@@ -542,206 +493,55 @@ h3 {
 
 /* contact us section styles */
 .inTouch {
-    padding: 140px 70px;
+    padding: 32px 0;
+    background: #fff;
 }
-
 .inTouch .container {
     display: flex;
     align-items: flex-start;
+    gap: 32px;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
-.touchLeft {
+.touchLeft, .touchRight {
     width: 50%;
-    padding-right: 10px;
+    min-width: 0;
 }
-
 .touchLeft h2 {
-    font-size: 66px;
-    font-weight: 900;
-    line-height: 76px;
-    font-family: "Gilroy-Heavy", sans-serif;
-    color: var(--text-dark);
-    margin-bottom: 25px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
 }
-.touchLeft h2 span {
-    color: #06498F;
+.touchLeft p, .touchRight p {
+    font-size: 1rem;
+    margin-bottom: 12px;
 }
-
-.touchLeft p {
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 31px;
-    font-family: "Gilroy-Regular", sans-serif;
-    color: var(--text-gray);
-    margin-bottom: 30px;
+.contact-form {
+    font-size: 1rem;
 }
-
-.touchLeft form .touchFormSug {
-    font-size: 18px;
+.contact-form .form-group label {
+    font-size: 0.95rem;
 }
-.touchLeft form .touchFormSug span {
-    color: red;
-}
-.touchLeft form .touchInpRow {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.touchLeft form .touchInpRow .touchSingleInp {
-    width: calc(50% - 10px);
-    position: relative;
-}
-.touchLeft form .touchInpRow .touchSingleInp.companyInp {
-    width: 100%;
-}
-.touchLeft form .touchInpRow label {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
-    font-family: "Gilroy-Medium", sans-serif;
-    color: var(--text-dark);
-    display: block;
-    position: relative;
-}
-
-.touchLeft form .touchInpRow label span {
-    color: red !important;
-}
-
-.touchLeft form .touchInpRow .touchSingleInp input {
-    width: 100%;
-    height: 52px;
-    border-radius: 8px;
-    border: 1px solid var(--text-gray);
-    padding: 12px 16px;
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Gilroy-Medium", sans-serif;
-    box-shadow: 0px 1px 2px 0px #1018280D;
-    background-color: var(--background-light);
-}
-.touchLeft form .touchInpRow .touchSingleInp span {
-    font-size: 14px;
-    color: #666666;
-}
-
-.touchLeft form .touchInpRow .touchInpBig {
-    width: 100%;
-}
-.touchLeft form .touchInpRow textarea {
-    width: 100%;
-    height: 120px;
-    border-radius: 8px;
-    border: 1px solid var(--text-gray);
-    padding: 12px 16px;
-    font-size: 16px;
-    font-weight: 400;
-    font-family: "Gilroy-Medium", sans-serif;
-    box-shadow: 0px 1px 2px 0px #1018280D;
-    background-color: var(--background-light);
-}
-
-.touchLeft form .touchInpRow small {
-    font-size: 13px;
-    color: red;
-    display: none;
-    position: absolute;
-    bottom: -17px;
-    left: 0;
-}
-.touchLeft form .touchInpRow small.active {
-    display: block;
-}
-
-.contentMethod {
-    margin-bottom: 20px;
-}
-.contentMethod p {
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 28px;
-    font-family: "Gilroy-Medium", sans-serif;
-    color: var(--text-dark);
-    margin-bottom: 15px;
-}
-.contentMethod p span {
-    color: red;
-}
-
-.contentMethod .methodItemWrap {
-    display: flex;
-    align-items: center;
-}
-.contentMethod .methodItemWrap .methodItem {
-    display: flex;
-    align-items: center;
-    margin-right: 25px;
-}
-
-.contentMethod .methodItemWrap .methodItem input {
-    width: 20px;
-    height: 20px;
-    display: block;
-    margin-right: 10px;
-}
-.contentMethod .methodItemWrap .methodItem label {
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 28px;
-    color: #666666;
-    font-family: "Gilroy-Regular", sans-serif;
-}
-
-.contentCaptcha {
-    width: 250px;
-    height: 100px;
-    border: 1.5px solid #141414;
-    margin-bottom: 30px;
-}
-
-.touchLeft form .touchBtn {
-    width: auto;
-    height: auto;
-    /* background-color: #06498F; */
-    color: #fff;
-    border: none;
-    font-size: 18px;
-    font-weight: 400;
-    padding: 12px 20px;
+.contact-form input, .contact-form textarea {
+    font-size: 0.95rem;
+    padding: 7px 10px;
     border-radius: 5px;
 }
-
-.touchRight {
-    width: 50%;
-    padding-left: 10px;
+.contact-form button[type="submit"] {
+    padding: 8px 18px;
+    font-size: 1rem;
+    border-radius: 5px;
+    margin-top: 8px;
+}
+.methodItemWrap {
+    gap: 8px;
 }
 .touchRight h3 {
-    font-size: 35px;
-    font-weight: 600;
-    line-height: 43px;
-    font-family: "Gilroy-Medium", sans-serif;
-    color: #06498F;
-    margin-bottom: 20px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
 }
-.touchRight p {
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 28px; /* Adjust line height for increased spacing between lines */
-    color: #000000;
-    margin-bottom: 15px; /* Increase the margin at the bottom of paragraphs for more spacing */
-    max-width: 75%; /* Set a maximum width for the paragraphs to make them more narrow */
-    /*text-align: center;*/
-}
-
-.touchRight {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center the content */
-    align-items: center; /* Horizontally center the content */
-    /* text-align: center; /* Center align the text within the container */
+@media (max-width: 700px) {
+    .inTouch .container { flex-direction: column; gap: 18px; }
+    .touchLeft, .touchRight { width: 100%; }
 }
 /* contact us section styles ends */
 
@@ -837,7 +637,8 @@ footer {
 
 @media (max-width: 1000px) {
     .container {
-        max-width: 800px;
+        max-width: 98vw;
+        padding: 12px 6vw;
     }
     header .logo {
         width: 130px;
