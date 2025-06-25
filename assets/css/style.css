@@ -165,7 +165,20 @@ button.secondary:focus {
 header {
     background-color: var(--background-dark);
     padding: 10px 0;
+    position: relative;
 }
+
+/* Hide any browser-generated UI elements in the header */
+header::before,
+header::after {
+    display: none !important;
+}
+
+/* Hide any browser-generated scrollbar controls */
+header *::-webkit-scrollbar {
+    display: none !important;
+}
+
 header .container {
     display: flex;
     align-items: center;
@@ -1627,5 +1640,55 @@ img[alt="Image failed to load"] {
         top: auto;
         margin-left: 0;
         box-shadow: none;
+    }
+}
+
+/* Hide browser-generated scrollbar control buttons */
+::-webkit-scrollbar-button {
+    display: none !important;
+}
+
+/* Hide any browser-generated scrollbar controls */
+*::-webkit-scrollbar-track-piece {
+    display: none !important;
+}
+
+/* Hide all browser-generated scrollbar controls globally */
+*::-webkit-scrollbar-button:single-button {
+    display: none !important;
+}
+
+*::-webkit-scrollbar-button:double-button {
+    display: none !important;
+}
+
+/* Hide any browser-generated UI elements that might appear as buttons */
+*::-webkit-scrollbar-corner {
+    display: none !important;
+}
+
+/* Ensure no browser-generated buttons appear anywhere */
+*::-webkit-scrollbar-thumb {
+    background: transparent !important;
+}
+
+/* Hide any browser-generated scrollbar controls */
+*::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+/* common styles */
+
+/* Hide the mobile menu button by default */
+.menu-btn {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .menu-btn {
+        display: inline-block;
+        cursor: pointer;
+        z-index: 1001;
+        position: relative;
     }
 }

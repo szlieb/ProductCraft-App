@@ -216,6 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>
                     <a href="why-choose-us.html">Why Choose Us</a>
                 </li>
+                <li>
+                    <a href="portfolio.html" class="service-button" aria-label="View our portfolio">Portfolio</a>
+                </li>
                 <li class="menu-item">
                     <a 
                         href="#"
