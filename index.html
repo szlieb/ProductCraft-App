@@ -133,99 +133,40 @@
             <!-- why choose us section ends -->
 
             <!-- services section starts -->
-            <section id="services" class="services" aria-labelledby="services-heading">
+            <section id="services" class="services-overview">
                 <div class="container">
-                    <h2 id="services-heading">Our <span>Services</span></h2>
-                    <div class="serviceWrap" role="list">
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img
-                                    src="assets/images/delivery-management.svg"
-                                    alt="Strategic consulting icon representing business strategy and planning"
-                                />
-                            </div>
-                            <h3>Strategic Consulting</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about strategic consulting services"
-                                onclick="window.location.href='strategic-consulting.html'"
-                            >
-                                Learn More
-                            </button>
+                    <h2 class="services-title">Our Services</h2>
+                    <p class="services-subtitle">Empowering your business with end-to-end technology solutions. Explore our core offerings below.</p>
+                    <div class="services-card-grid">
+                        <div class="service-card">
+                            <h3 class="service-card-title">Strategic Consulting</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="strategic-consulting.html" class="service-card-btn">Learn More</a>
                         </div>
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img src="assets/images/qa.svg" alt="Product development icon representing innovation and creation" />
-                            </div>
-                            <h3>Product Development</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about product development services"
-                                onclick="window.location.href='product-development.html'"
-                            >
-                                Learn More
-                            </button>
+                        <div class="service-card">
+                            <h3 class="service-card-title">Product Development</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="product-development.html" class="service-card-btn">Learn More</a>
                         </div>
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img src="assets/images/strategy.png" alt="Project management icon representing organization and planning" />
-                            </div>
-                            <h3>Project Management</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about project management services"
-                                onclick="window.location.href='project-management.html'"
-                            >
-                                Learn More
-                            </button>
+                        <div class="service-card">
+                            <h3 class="service-card-title">Project Management</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="project-management.html" class="service-card-btn">Learn More</a>
                         </div>
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img src="assets/images/strategy.png" alt="Software development icon representing coding and technology" />
-                            </div>
-                            <h3>Software Development</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about software development services"
-                                onclick="window.location.href='software-development.html'"
-                            >
-                                Learn More
-                            </button>
+                        <div class="service-card">
+                            <h3 class="service-card-title">Software Development</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="software-development.html" class="service-card-btn">Learn More</a>
                         </div>
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img
-                                    src="assets/images/delivery-management.svg"
-                                    alt="Iterative enhancements icon representing continuous improvement"
-                                />
-                            </div>
-                            <h3>Iterative Enhancements</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about iterative enhancement services"
-                                onclick="window.location.href='iterative-enhancements.html'"
-                            >
-                                Learn More
-                            </button>
+                        <div class="service-card">
+                            <h3 class="service-card-title">Iterative Enhancements</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="iterative-enhancements.html" class="service-card-btn">Learn More</a>
                         </div>
-                        <div class="singleService" role="listitem">
-                            <div class="serviceImg" role="presentation">
-                                <img src="assets/images/qa.svg" alt="Email marketing icon representing digital communication" />
-                            </div>
-                            <h3>Email Marketing</h3>
-                            <button 
-                                type="button" 
-                                class="service-button"
-                                aria-label="Learn more about email marketing services"
-                                onclick="window.location.href='email-marketing.html'"
-                            >
-                                Learn More
-                            </button>
+                        <div class="service-card">
+                            <h3 class="service-card-title">Email Marketing</h3>
+                            <p class="service-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi eu consectetur.</p>
+                            <a href="email-marketing.html" class="service-card-btn">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -270,9 +211,16 @@
             <section id="inTouch" class="inTouch" aria-labelledby="contact-heading">
                 <div class="container">
                     <div class="touchLeft">
-                        <h2 id="contact-heading">Get In <span>Touch</span></h2>
-                        <p>Our friendly team would love to hear from you.</p>
-                        <!-- contact form -->
+                        <h2 id="contact-heading">Get In Touch</h2>
+                        <div class="inTouch-header-sub" style="text-align:center;font-weight:bold;font-size:1.1rem;margin-bottom:10px;">
+                            Discover the Benefits of Working with<br>ProductCraft Solutions
+                        </div>
+                        <div class="inTouch-desc">
+                            <p style="text-align:left;">We are passionate about helping people or businesses like yours succeed. Get in touch to learn more about our expertise and how we can help you achieve your goals.</p>
+                            <p style="text-align:left;">Our team is dedicated to delivering exceptional results that exceed your expectations. Tap into our expertise and experience a swift and efficient turnaround, from start to finish. We'll work closely with you and your team to understand your needs and tailor our approach to meet your unique challenges.</p>
+                        </div>
+                    </div>
+                    <div class="touchRight" style="width:50%;max-width:400px;display:flex;align-items:center;justify-content:center;">
                         <form
                             action="https://formspree.io/f/mwkdjaad"
                             method="POST"
@@ -280,136 +228,86 @@
                             class="contact-form"
                             novalidate
                         >
-                            <h3 id="contact-form-heading" class="visually-hidden">Contact Form</h3>
-                            <p class="touchFormSug" id="required-fields-note">
-                                "<span class="required-mark" aria-hidden="true">*</span>" Indicates Required Fields
-                            </p>
-                            <div class="form-group">
-                                <label for="firstName">First Name<span class="required-mark" aria-hidden="true">*</span></label>
-                                <input
-                                    type="text"
-                                    id="firstName"
-                                    name="firstName"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="firstName-error"
-                                    aria-invalid="false"
-                                />
-                                <div id="firstName-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="form-row full">
+                                <div class="form-group full">
+                                    <label for="firstName">First Name<span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input
+                                        type="text"
+                                        id="firstName"
+                                        name="firstName"
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="firstName-error"
+                                        aria-invalid="false"
+                                    />
+                                    <div id="firstName-error" class="error-message" role="alert" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name<span class="required-mark" aria-hidden="true">*</span></label>
-                                <input
-                                    type="text"
-                                    id="lastName"
-                                    name="lastName"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="lastName-error"
-                                    aria-invalid="false"
-                                />
-                                <div id="lastName-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="form-row full">
+                                <div class="form-group full">
+                                    <label for="lastName">Last Name<span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input
+                                        type="text"
+                                        id="lastName"
+                                        name="lastName"
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="lastName-error"
+                                        aria-invalid="false"
+                                    />
+                                    <div id="lastName-error" class="error-message" role="alert" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Email<span class="required-mark" aria-hidden="true">*</span></label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="email-error"
-                                    aria-invalid="false"
-                                />
-                                <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="form-row full">
+                                <div class="form-group full">
+                                    <label for="email">Email<span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="email-error"
+                                        aria-invalid="false"
+                                    />
+                                    <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="phone">Phone Number<span class="required-mark" aria-hidden="true">*</span></label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                                    placeholder="123-456-7890"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="phone-error"
-                                    aria-invalid="false"
-                                />
-                                <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="form-row full">
+                                <div class="form-group full">
+                                    <label for="phone">Phone Number<span class="required-mark" aria-hidden="true">*</span></label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                        placeholder="123-456-7890"
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="phone-error"
+                                        aria-invalid="false"
+                                    />
+                                    <div id="phone-error" class="error-message" role="alert" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Message<span class="required-mark" aria-hidden="true">*</span></label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    required
-                                    aria-required="true"
-                                    aria-describedby="message-error"
-                                    aria-invalid="false"
-                                ></textarea>
-                                <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="form-row single">
+                                <div class="form-group full">
+                                    <label for="message">Message<span class="required-mark" aria-hidden="true">*</span></label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        required
+                                        aria-required="true"
+                                        aria-describedby="message-error"
+                                        aria-invalid="false"
+                                    ></textarea>
+                                    <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <fieldset class="methodItemWrap" role="radiogroup" aria-labelledby="method-legend">
-                                    <legend id="method-legend">Preferred Contact Method</legend>
-                                    <div class="methodItem">
-                                        <input
-                                            type="radio"
-                                            id="contact-method-text"
-                                            name="method"
-                                            value="text"
-                                        />
-                                        <label for="contact-method-text">Text</label>
-                                    </div>
-                                    <div class="methodItem">
-                                        <input
-                                            type="radio"
-                                            id="contact-method-email"
-                                            name="method"
-                                            value="email"
-                                        />
-                                        <label for="contact-method-email">Email</label>
-                                    </div>
-                                    <div class="methodItem">
-                                        <input
-                                            type="radio"
-                                            id="contact-method-phone"
-                                            name="method"
-                                            value="phone"
-                                        />
-                                        <label for="contact-method-phone">Phone Call</label>
-                                    </div>
-                                    <div id="method-error" class="error-message" role="alert" aria-live="polite"></div>
-                                </fieldset>
+                            <div class="form-row last">
+                                <button type="submit" aria-label="Submit contact form">Submit</button>
                             </div>
-                            <input
-                                type="hidden"
-                                id="selectedMethod"
-                                name="selectedMethod"
-                                value=""
-                            />
-                            <button type="submit" aria-label="Submit contact form">Submit</button>
                         </form>
-                    </div>
-                    <div class="touchRight">
-                        <h3>
-                            Discover the Benefits of Working with ProductCraft
-                            Solutions
-                        </h3>
-                        <p>
-                            We are passionate about helping people or businesses
-                            like yours succeed. Get in touch to learn more about our
-                            expertise and how we can help you achieve your goals.
-                        </p>
-                        <p>
-                            Our team is dedicated to delivering exceptional results
-                            that exceed your expectations. Tap into our expertise
-                            and experience a swift and efficient turnaround, from
-                            start to finish. We'll work closely with you and your
-                            team to understand your needs and tailor our approach to
-                            meet your unique challenges.
-                        </p>
                     </div>
                 </div>
             </section>
