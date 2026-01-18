@@ -242,22 +242,16 @@ document.addEventListener('DOMContentLoaded', () => {
                             </a>
                             <ul id="services-submenu" class="submenu" role="menu">
                                 <li class="submenu-item" role="none">
-                                    <a href="strategic-consulting.html" role="menuitem">Strategic Consulting</a>
+                                    <a href="product-strategy-discovery.html" role="menuitem">Product Strategy and Discovery</a>
                                 </li>
                                 <li class="submenu-item" role="none">
-                                    <a href="product-development.html" role="menuitem">Product Development</a>
+                                    <a href="product-software-delivery.html" role="menuitem">Product and Software Delivery</a>
                                 </li>
                                 <li class="submenu-item" role="none">
-                                    <a href="project-management.html" role="menuitem">Project Management</a>
+                                    <a href="automation-ai-solutions.html" role="menuitem">Automation and AI Solutions</a>
                                 </li>
                                 <li class="submenu-item" role="none">
-                                    <a href="software-development.html" role="menuitem">Software Development</a>
-                                </li>
-                                <li class="submenu-item" role="none">
-                                    <a href="iterative-enhancements.html" role="menuitem">Iterative Enhancements</a>
-                                </li>
-                                <li class="submenu-item" role="none">
-                                    <a href="email-marketing.html" role="menuitem">Email Marketing</a>
+                                    <a href="growth-optimization-support.html" role="menuitem">Growth, Optimization, and Support</a>
                                 </li>
                             </ul>
                         </li>
