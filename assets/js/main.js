@@ -283,33 +283,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Footer content
     const footerContent = `
-    <div class="container">
-        <div class="footerTop">
-            <ul>
-                <li>
-                    <a href="about.html">About Us</a>
-                </li>
-                <li>
-                    <a href="why-choose-us.html">Why Choose Us</a>
-                </li>
-                <li>
-                    <a href="#services">Our Services</a>
-                </li>
-                <li>
-                    <a href="get-in-touch.html">Get In Touch</a>
-                </li>
-            </ul>
-            <div class="footerSocial">
-                <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile (opens in new tab)">
-                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                    <span class="visually-hidden">Opens in new tab</span>
-                </a>
+    <div class="footer-panel">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ProductCraft Solutions</h3>
+                    <p>Senior product teams that deliver strategy, build software, and optimize growth—without the hiring bloat.</p>
+                    <div class="footer-cta">
+                        <a href="get-in-touch.html" class="btn-primary">Book a Call</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="product-strategy-discovery.html">Product Strategy & Discovery</a></li>
+                        <li><a href="product-software-delivery.html">Product & Software Delivery</a></li>
+                        <li><a href="automation-ai-solutions.html">Automation & AI Solutions</a></li>
+                        <li><a href="growth-optimization-support.html">Growth & Optimization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="industries.html">Industries</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="get-in-touch.html">Get In Touch</a></li>
+                    </ul>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile">
+                            <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="footerBottom">
-            <p>
-                &copy; Copyright 2025, All Rights Reserved by ProductCraft Solutions
-            </p>
+            <div class="footer-bottom">
+                <p>&copy; Copyright 2025, All Rights Reserved by ProductCraft Solutions</p>
+            </div>
         </div>
     </div>
     `;
