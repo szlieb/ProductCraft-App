@@ -196,16 +196,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Header content
     const headerContent = `
-    <div class="container">
-        <a href="index.html">
-            <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" style="height:55px;max-height:55px;width:auto;margin-right:12px;vertical-align:middle;" />
-        </a>
-        <nav aria-label="Main navigation">
-            <ul>
-                <li style="width:48px;"></li>
-                <li style="width:48px;"></li>
-                <li style="width:48px;"></li>
-                <li style="width:48px;"></li>
+    <div class="header-surface">
+      <div class="container">
+          <a href="index.html" class="logo-link">
+              <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
+          </a>
+          <nav aria-label="Main navigation">
+              <ul>
                 <li class="mobile-only">
                     <a href="index.html">
                         <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
@@ -266,19 +263,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>
                     <a href="get-in-touch.html">Get In Touch</a>
                 </li>
-                <li style="width:48px;"></li>
-                <li style="width:48px;"></li>
-            </ul>
-        </nav>
-        <button 
-            class="menu-btn" 
-            id="menu-btn" 
-            aria-label="Toggle menu" 
-            aria-expanded="false" 
-            aria-controls="mobile-menu"
-        >
-            <div class="menu-btn__burger" aria-hidden="true"></div>
-        </button>
+              </ul>
+          </nav>
+          <a href="#inTouch" class="header-cta">
+              <button type="button" class="btn-primary">Book a Call</button>
+          </a>
+          <button 
+              class="menu-btn" 
+              id="menu-btn" 
+              aria-label="Toggle menu" 
+              aria-expanded="false" 
+              aria-controls="mobile-menu"
+          >
+              <div class="menu-btn__burger" aria-hidden="true"></div>
+          </button>
+      </div>
     </div>
     `;
 
