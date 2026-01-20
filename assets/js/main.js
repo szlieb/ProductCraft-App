@@ -370,6 +370,18 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.style.overflow = '';
             menuBtn.setAttribute('aria-expanded', 'false');
         });
+
+        // Close mobile menu when any link is clicked
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuBtn.classList.remove('open');
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                menuBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
     }
 
     // Solutions dropdown functionality
@@ -377,12 +389,30 @@ document.addEventListener('DOMContentLoaded', () => {
     if (solutionsLink) {
         solutionsLink.addEventListener('click', function(e) {
             if (e.target === solutionsLink && (e.type === 'click' || e.key === 'Enter' || e.key === ' ')) {
-                e.preventDefault();
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                const submenu = document.getElementById('solutions-submenu');
-                if (submenu) {
-                    submenu.style.display = isExpanded ? 'none' : 'block';
+                // On mobile, navigate directly to services section instead of opening dropdown
+                if (window.innerWidth <= 800) {
+                    e.preventDefault();
+                    window.location.hash = '#services';
+                    // Close mobile menu if open
+                    const menuBtn = document.querySelector('.menu-btn');
+                    const mobileMenu = document.querySelector('header .container ul');
+                    const overlay = document.querySelector('.overlay');
+                    if (menuBtn && mobileMenu && overlay) {
+                        menuBtn.classList.remove('open');
+                        mobileMenu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                        menuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                } else {
+                    // Desktop behavior - open dropdown
+                    e.preventDefault();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    const submenu = document.getElementById('solutions-submenu');
+                    if (submenu) {
+                        submenu.style.display = isExpanded ? 'none' : 'block';
+                    }
                 }
             }
         });
