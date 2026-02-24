@@ -201,13 +201,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <a href="index.html" class="logo-link">
               <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
           </a>
-          <nav aria-label="Main navigation">
+          <!-- Desktop Navigation -->
+          <nav aria-label="Main navigation" class="desktop-only">
               <ul>
-                <li class="mobile-only">
-                    <a href="index.html">
-                        <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
-                    </a>
-                </li>
                 <li>
                     <a href="index.html">Home</a>
                 </li>
@@ -265,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </li>
               </ul>
           </nav>
-          <a href="#inTouch" class="header-cta">
+          <a href="#inTouch" class="header-cta desktop-only">
               <button type="button" class="btn-primary">Book a Call</button>
           </a>
           <button 
@@ -273,13 +269,54 @@ document.addEventListener('DOMContentLoaded', () => {
               id="menu-btn" 
               aria-label="Toggle menu" 
               aria-expanded="false" 
-              aria-controls="mobile-menu"
+              aria-controls="mobile-menu-drawer"
           >
               <div class="menu-btn__burger" aria-hidden="true"></div>
           </button>
       </div>
     </div>
-    `;
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+        <div class="mobile-menu-header">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/logo.svg" alt="ProductCraft logo" class="logo" />
+            </a>
+            <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">
+                &times;
+            </button>
+        </div>
+        <div class="mobile-menu-content">
+            <nav class="mobile-menu-nav" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li class="mobile-menu-accordion" id="mobile-services-accordion">
+                        <button class="mobile-menu-accordion-toggle" aria-expanded="false" aria-controls="mobile-services-content">
+                            Services
+                        </button>
+                        <div class="mobile-menu-accordion-content" id="mobile-services-content">
+                            <ul>
+                                <li><a href="product-strategy-discovery.html">Product Strategy & Discovery</a></li>
+                                <li><a href="product-software-delivery.html">Product & Software Delivery</a></li>
+                                <li><a href="automation-ai-solutions.html">Automation & AI Solutions</a></li>
+                                <li><a href="growth-optimization-support.html">Growth & Optimization</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li><a href="industries.html">Industries We Serve</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="get-in-touch.html">Get In Touch</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    `
 
     // Footer content
     const footerContent = `
@@ -325,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; Copyright 2025, All Rights Reserved by ProductCraft Solutions</p>
+                <p>&copy; Copyright 2026, All Rights Reserved by ProductCraft Solutions</p>
             </div>
         </div>
     </div>
@@ -350,37 +387,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Mobile menu functionality
-    const menuBtn = document.querySelector('.menu-btn');
-    const mobileMenu = document.querySelector('header .container ul');
-    const overlay = document.querySelector('.overlay');
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
 
-    if (menuBtn && mobileMenu && overlay) {
+    if (menuBtn && mobileMenuDrawer && mobileMenuOverlay) {
+        // Open mobile menu
         menuBtn.addEventListener('click', function() {
-            this.classList.toggle('open');
-            mobileMenu.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = this.classList.contains('open') ? 'hidden' : '';
-            this.setAttribute('aria-expanded', this.classList.contains('open'));
+            this.classList.add('open');
+            mobileMenuDrawer.classList.add('open');
+            mobileMenuOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+            document.body.style.overflow = 'hidden';
+            this.setAttribute('aria-expanded', 'true');
         });
 
-        overlay.addEventListener('click', function() {
+        // Close mobile menu functions
+        const closeMobileMenu = function() {
             menuBtn.classList.remove('open');
-            mobileMenu.classList.remove('active');
-            this.classList.remove('active');
+            mobileMenuDrawer.classList.remove('open');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
             document.body.style.overflow = '';
             menuBtn.setAttribute('aria-expanded', 'false');
-        });
+        };
 
-        // Close mobile menu when any link is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
+        // Close button
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+
+        // Overlay click
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close on link click
+        const mobileLinks = mobileMenuDrawer.querySelectorAll('a');
         mobileLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                menuBtn.classList.remove('open');
-                mobileMenu.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = '';
-                menuBtn.setAttribute('aria-expanded', 'false');
-            });
+            link.addEventListener('click', closeMobileMenu);
+        });
+    }
+
+    // Mobile Services accordion
+    const servicesAccordion = document.getElementById('mobile-services-accordion');
+    const servicesToggle = document.querySelector('#mobile-services-accordion .mobile-menu-accordion-toggle');
+    const servicesContent = document.getElementById('mobile-services-content');
+
+    if (servicesAccordion && servicesToggle && servicesContent) {
+        servicesToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !isExpanded);
+            if (servicesContent.classList.contains('open')) {
+                servicesContent.classList.remove('open');
+            } else {
+                servicesContent.classList.add('open');
+            }
         });
     }
 
