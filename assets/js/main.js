@@ -318,42 +318,46 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
     `
 
-    // Footer content
+    // Footer content – three columns: left = name + blurb, center = Book a Call, right = dropdowns + social
     const footerContent = `
     <div class="footer-panel">
-        <div class="container">
+        <div class="container footer-container">
             <div class="footer-content">
-                <div class="footer-section">
+                <div class="footer-col footer-col-left">
                     <h3>ProductCraft Solutions</h3>
-                    <p>Senior product teams that deliver strategy, build software, and optimize growth—without the hiring bloat.</p>
-                    <div class="footer-cta">
-                        <a href="get-in-touch.html" class="btn-primary">Book a Call</a>
+                    <p>Senior product teams—strategy, software delivery, and growth without the hiring bloat.</p>
+                </div>
+                <div class="footer-col footer-col-center">
+                    <a href="get-in-touch.html" class="btn-primary btn-footer">Book a Call</a>
+                </div>
+                <div class="footer-col footer-col-right">
+                    <div class="footer-dropdowns">
+                        <div class="footer-dropdown" data-footer-dropdown>
+                            <button type="button" class="footer-dropdown-toggle" aria-expanded="false" aria-controls="footer-services-menu" id="footer-services-label">Services <span class="footer-chevron" aria-hidden="true"></span></button>
+                            <ul class="footer-dropdown-menu" id="footer-services-menu" role="region" aria-labelledby="footer-services-label">
+                                <li><a href="product-strategy-discovery.html">Product Strategy & Discovery</a></li>
+                                <li><a href="product-software-delivery.html">Product & Software Delivery</a></li>
+                                <li><a href="automation-ai-solutions.html">Automation & AI Solutions</a></li>
+                                <li><a href="growth-optimization-support.html">Growth & Optimization</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-dropdown" data-footer-dropdown>
+                            <button type="button" class="footer-dropdown-toggle" aria-expanded="false" aria-controls="footer-company-menu" id="footer-company-label">Company <span class="footer-chevron" aria-hidden="true"></span></button>
+                            <ul class="footer-dropdown-menu" id="footer-company-menu" role="region" aria-labelledby="footer-company-label">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="why-choose-us.html">Why Choose Us</a></li>
+                                <li><a href="portfolio.html">Portfolio</a></li>
+                                <li><a href="industries.html">Industries</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-dropdown" data-footer-dropdown>
+                            <button type="button" class="footer-dropdown-toggle" aria-expanded="false" aria-controls="footer-support-menu" id="footer-support-label">Support <span class="footer-chevron" aria-hidden="true"></span></button>
+                            <ul class="footer-dropdown-menu" id="footer-support-menu" role="region" aria-labelledby="footer-support-label">
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="get-in-touch.html">Get In Touch</a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="footer-section">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="product-strategy-discovery.html">Product Strategy & Discovery</a></li>
-                        <li><a href="product-software-delivery.html">Product & Software Delivery</a></li>
-                        <li><a href="automation-ai-solutions.html">Automation & AI Solutions</a></li>
-                        <li><a href="growth-optimization-support.html">Growth & Optimization</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="why-choose-us.html">Why Choose Us</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="industries.html">Industries</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Support</h4>
-                    <ul>
-                        <li><a href="faq.html">FAQ</a></li>
-                        <li><a href="get-in-touch.html">Get In Touch</a></li>
-                    </ul>
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/placeholder" target="_blank" rel="noopener noreferrer" aria-label="Visit our LinkedIn profile">
                             <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
@@ -382,6 +386,32 @@ document.addEventListener('DOMContentLoaded', () => {
     if (footerElement) {
         console.log('Footer element found');
         footerElement.innerHTML = footerContent;
+        // Footer dropdown toggles
+        footerElement.querySelectorAll('[data-footer-dropdown]').forEach(function (dropdown) {
+            var toggle = dropdown.querySelector('.footer-dropdown-toggle');
+            var menu = dropdown.querySelector('.footer-dropdown-menu');
+            if (!toggle || !menu) return;
+            toggle.addEventListener('click', function () {
+                var isOpen = dropdown.classList.contains('open');
+                footerElement.querySelectorAll('[data-footer-dropdown].open').forEach(function (d) {
+                    d.classList.remove('open');
+                    var t = d.querySelector('.footer-dropdown-toggle');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                });
+                if (!isOpen) {
+                    dropdown.classList.add('open');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+        document.addEventListener('click', function (e) {
+            if (footerElement.contains(e.target)) return;
+            footerElement.querySelectorAll('[data-footer-dropdown].open').forEach(function (d) {
+                d.classList.remove('open');
+                var t = d.querySelector('.footer-dropdown-toggle');
+                if (t) t.setAttribute('aria-expanded', 'false');
+            });
+        });
     } else {
         console.error('Footer element is missing');
     }
